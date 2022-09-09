@@ -1,12 +1,14 @@
 import {Autocomplete} from '@mui/material';
 import {TextField} from '@mui/material';
 
+import styles from './main-screen.module.scss';
+
 import {lang} from '../../const';
 
 function MainScreen(): JSX.Element {
 
   return (
-    <div className="page page--gray page--main">
+    <div className={styles.page}>
       <header className="header">
         <div className="container">
           <div className="header__wrapper">
