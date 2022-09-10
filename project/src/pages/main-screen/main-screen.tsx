@@ -1,6 +1,8 @@
 import {Autocomplete} from '@mui/material';
 import {TextField} from '@mui/material';
 
+import Character from '../../components/character/character';
+
 import styles from './main-screen.module.scss';
 
 import {lang} from '../../const';
@@ -32,85 +34,18 @@ function MainScreen(): JSX.Element {
       </header>
 
       <main className="page__main page__main--index">
-        <h1 className="visually-hidden">Character</h1>
+        <h1 className="visually-hidden">RPG-Character</h1>
 
+        <Character />
 
-        <div className="params">
-          <h2>Параметры персонажа</h2>
-
-          <ul>
-            <li>Уровень: 5</li>
-          </ul>
-
-          <ul>
-            <li>Сила: 29 (116 урона/8.7% крит урона)</li>
-            <li>Стойкость: 30 (600 здоровья/3.0% стойкости к магии)</li>
-            <li>Ловкость: 10 (1.50% шанс на крит/1.50% шанс уклонения)</li>
-          </ul>
-
-          <ul>
-            <li>Максимальное количество здоровья: 600</li>
-            <li>Стойкость к магии: 3%</li>
-            <li>Урон персонажа: 116</li>
-            <li>Критический урон: 8,7%</li>
-            <li>Шанс на крит: 1,50%</li>
-            <li>Шанс уклонения: 1,50%</li>
-          </ul>
-
-        </div>
-        <div className="character">
-          <h2>Персонаж</h2>
-
-          <picture>
-            <source
-              type="image/webp"
-              width="86"
-              height="86"
-              srcSet="/img/sword.webp"
-            />
-            <img
-              alt="img"
-              width="86"
-              height="86"
-              src="/img/sword.png"
-            />
-          </picture>
-
-          <picture>
-            <source
-              type="image/webp"
-              width="517"
-              height="823"
-              srcSet="/img/character.webp"
-            />
-            <img
-              alt="img"
-              width="517"
-              height="823"
-              src="/img/character.png"
-            />
-          </picture>
-
-          <picture>
-            <source
-              type="image/webp"
-              width="86"
-              height="86"
-              srcSet="/img/shield.webp"
-            />
-            <img
-              alt="img"
-              width="86"
-              height="86"
-              src="/img/shield.png"
-            />
-          </picture>
-
-        </div>
-
-        <div className="inventory">
+        <section className="inventory">
           <h2>Инвентарь</h2>
 
+          <ul>
+            <li>Зелья</li>
+            <li>Экипировка</li>
+            <li>Артефакты</li>
+          </ul>
           <picture>
             <source
               type="image/webp"
@@ -170,9 +105,7 @@ function MainScreen(): JSX.Element {
               src="/img/phial-2.png"
             />
           </picture>
-
-        </div>
-
+        </section>
       </main>
 
       <footer className="footer">

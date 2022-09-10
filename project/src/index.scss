@@ -1,5 +1,39 @@
+// Цвета
+$white: rgba(255, 255, 255, 100);
+$black: rgba(0, 0, 0, 100);
+$dark-grey: rgba(28, 28, 28, 100);
+
+// Отступы
+//$mobile-indent: 20px;
+$mobile-indent: 1vw;
+$tablet-indent: 30px;
+$desktop-indent: 40px;
+//$tablet-indent-form: 70px;
+
+// Ширины
+$tablet-width: 768px;
+$desktop-width: 1300px;
+//$content-width: $desktop-width - ($desktop-indent * 2); // 1300 - 80 = 1220
+$content-width: 64vw;
+
 body {
   margin: 0;
-  background-color: #121111;
-  color: #ffffff;
+  background-color: $dark-grey;
+  color: $white;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
