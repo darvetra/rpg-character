@@ -1,0 +1,43 @@
+@use "src/index.scss";
+@use "src/components/character/character.module";
+
+
+.parameters {
+  background-color: index.$black90;
+  border-radius: 0.5vw;
+  box-shadow: 0 0.4vw 1.5vw index.$black;
+}
+
+.parameters__title {
+  background: linear-gradient(97.68deg, #3478e7 .81%, #3cbeea 29.68%, #5dcaee 49.24%, #3cbeea 68.34%, #4397e7 86.12%);
+}
+
+.parameters__parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.parameters__description {
+  font-size: 16px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.parameters__block {
+  display: flex;
+  align-items: center;
+}
+
+.parameters__changeable-value {
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px index.$white50 solid;
+  padding: 10px 25px;
+}
+
+.parameters__unchangeable-value {
+  font-size: 16px;
+  font-weight: bold;
+}

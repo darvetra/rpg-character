@@ -7,15 +7,15 @@ import styles from './main-screen.module.scss';
 function MainScreen(): JSX.Element {
 
   return (
-    <div className={styles.page}>
-
+    <div>
       <Header />
 
-
-      <main className="page__main page__main--index">
+      <main className={styles['main-page']}>
         <h1 className="visually-hidden">RPG-Character</h1>
 
         <Character />
+
+        <h2 className={''}>Итоговые характеристики персонажа</h2>
 
         <section className="inventory">
           <h2>Инвентарь</h2>

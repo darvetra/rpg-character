@@ -14,7 +14,8 @@
 }
 
 .header__logo {
-display: flex;
+  display: flex;
+  transition: .5s ease-in-out;
 
   &:hover,
   &:focus {

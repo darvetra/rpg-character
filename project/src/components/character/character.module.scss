@@ -24,13 +24,6 @@
   min-height: 600px;
 }
 
-.parameters {
-  background-color: green;
-}
-
-.parameters__title {
-  background: linear-gradient(97.68deg, #3478e7 .81%, #3cbeea 29.68%, #5dcaee 49.24%, #3cbeea 68.34%, #4397e7 86.12%);
-}
 @media (min-width: index.$tablet-width) {
   .character__wrapper {
     padding: 0 index.$tablet-indent;
