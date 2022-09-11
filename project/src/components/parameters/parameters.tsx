@@ -14,9 +14,15 @@ function Parameters(): JSX.Element {
         <div className={styles['parameters__parent']}>
           <div className={styles['parameters__description']}>Уровень персонажа:</div>
           <div className={styles['parameters__block']}>
-            <ArrowBackIosOutlinedIcon color="primary" />
+            <ArrowBackIosOutlinedIcon
+              className={styles['parameters__arrow']}
+              color="primary"
+            />
             <div className={styles['parameters__changeable-value']}>5</div>
-            <ArrowForwardIosOutlinedIcon color="primary" />
+            <ArrowForwardIosOutlinedIcon
+              className={styles['parameters__arrow']}
+              color="primary"
+            />
           </div>
         </div>
 
@@ -24,25 +30,43 @@ function Parameters(): JSX.Element {
           <li className={styles['parameters__parent']}>
             <div className={styles['parameters__description']}>Сила:</div>
             <div className={styles['parameters__block']}>
-              <ArrowBackIosOutlinedIcon color="primary" />
+              <ArrowBackIosOutlinedIcon
+                className={styles['parameters__arrow']}
+                color="primary"
+              />
               <div className={styles['parameters__changeable-value']}>29</div>
-              <ArrowForwardIosOutlinedIcon color="primary" />
+              <ArrowForwardIosOutlinedIcon
+                className={styles['parameters__arrow']}
+                color="primary"
+              />
             </div>
           </li>
           <li className={styles['parameters__parent']}>
             <div className={styles['parameters__description']}>Стойкость:</div>
             <div className={styles['parameters__block']}>
-              <ArrowBackIosOutlinedIcon color="primary" />
+              <ArrowBackIosOutlinedIcon
+                className={styles['parameters__arrow']}
+                color="primary"
+              />
               <div className={styles['parameters__changeable-value']}>30</div>
-              <ArrowForwardIosOutlinedIcon color="primary" />
+              <ArrowForwardIosOutlinedIcon
+                className={styles['parameters__arrow']}
+                color="primary"
+              />
             </div>
           </li>
           <li className={styles['parameters__parent']}>
             <div className={styles['parameters__description']}>Ловкость:</div>
             <div className={styles['parameters__block']}>
-              <ArrowBackIosOutlinedIcon color="primary" />
+              <ArrowBackIosOutlinedIcon
+                className={styles['parameters__arrow']}
+                color="primary"
+              />
               <div className={styles['parameters__changeable-value']}>10</div>
-              <ArrowForwardIosOutlinedIcon color="primary" />
+              <ArrowForwardIosOutlinedIcon
+                className={styles['parameters__arrow']}
+                color="primary"
+              />
             </div>
           </li>
 

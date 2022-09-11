@@ -3,20 +3,32 @@
 
 
 .parameters {
+  padding-bottom: 20px;
+  margin-bottom: 30px;
   background-color: index.$translucent-black;
   border-radius: 0.5vw;
   box-shadow: 0 0.4vw 1.5vw index.$black;
 }
 
-.parameters__title {
+.parameters ul {
   padding: 0;
   margin: 0;
-  font-size: 36px;
-  line-height: 1.03;
+}
+
+.parameters__title {
+  padding: 20px;
+  margin: 0;
+  margin-bottom: 20px;
+  border-top-left-radius: 0.5vw;
+  border-top-right-radius: 0.5vw;
+  font-size: 1.3rem;
+  text-transform: uppercase;
   background: linear-gradient(97.68deg, #3478e7 .81%, #3cbeea 29.68%, #5dcaee 49.24%, #3cbeea 68.34%, #4397e7 86.12%);
 }
 
 .parameters__parent {
+  padding: 0 20px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,17 +43,39 @@
 
 .parameters__block {
   display: flex;
-  align-items: center;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+  width: 120px;
+  height: 38px;
+}
+
+.parameters__arrow {
+  transition: .5s ease-in-out;
+
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 }
 
 .parameters__changeable-value {
-  font-size: 16px;
+  display: flex;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+  font-size: 1rem;
   font-weight: bold;
   border: 1px index.$white50 solid;
-  padding: 10px 25px;
+  height: 38px;
+  width: 70px;
 }
 
 .parameters__unchangeable-value {
-  font-size: 16px;
+  display: flex;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+  font-size: 1rem;
   font-weight: bold;
+  height: 38px;
 }
