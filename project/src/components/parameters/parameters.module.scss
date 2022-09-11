@@ -3,12 +3,16 @@
 
 
 .parameters {
-  background-color: index.$black90;
+  background-color: index.$translucent-black;
   border-radius: 0.5vw;
   box-shadow: 0 0.4vw 1.5vw index.$black;
 }
 
 .parameters__title {
+  padding: 0;
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.03;
   background: linear-gradient(97.68deg, #3478e7 .81%, #3cbeea 29.68%, #5dcaee 49.24%, #3cbeea 68.34%, #4397e7 86.12%);
 }
 

@@ -19,7 +19,8 @@
 }
 
 .character__item {
-  padding: 0 index.$mobile-indent;
+  //padding: 0 index.$mobile-indent;
+  padding: 0;
   position: relative;
   min-height: 600px;
 }
@@ -33,13 +34,6 @@
     margin: 0;
     margin-bottom: index.$tablet-indent;
     min-height: 372px;
-  }
-
-  .character__title {
-    font-size: 36px;
-    line-height: 1.03;
-    padding: 0;
-    margin-top: 30px;
   }
 }
 

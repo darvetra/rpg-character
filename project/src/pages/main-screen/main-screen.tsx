@@ -15,8 +15,6 @@ function MainScreen(): JSX.Element {
 
         <Character />
 
-        <h2 className={''}>Итоговые характеристики персонажа</h2>
-
         <section className="inventory">
           <h2>Инвентарь</h2>
 
