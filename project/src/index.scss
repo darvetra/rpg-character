@@ -57,6 +57,9 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style-type: none;
+}
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
 

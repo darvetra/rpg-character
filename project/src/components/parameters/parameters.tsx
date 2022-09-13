@@ -1,5 +1,9 @@
+import {Button} from '@mui/material';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import SportsMartialArtsOutlinedIcon from '@mui/icons-material/SportsMartialArtsOutlined';
+import HikingOutlinedIcon from '@mui/icons-material/HikingOutlined';
+import SurfingOutlinedIcon from '@mui/icons-material/SurfingOutlined';
 
 import styles from './parameters.module.scss';
 
@@ -9,16 +13,16 @@ function Parameters(): JSX.Element {
   return (
     <section className={styles['character__item']}>
       <section className={styles['parameters']}>
-        <h2 className={styles['parameters__title']}>Базовые характеристики персонажа</h2>
+        <h2 className={styles['parameters__title']}>Характеристики персонажа</h2>
 
-        <div className={styles['parameters__parent']}>
+        <div className={styles['parameters__row']}>
           <div className={styles['parameters__description']}>Уровень персонажа:</div>
-          <div className={styles['parameters__block']}>
+          <div className={styles['parameters__values']}>
             <ArrowBackIosOutlinedIcon
               className={styles['parameters__arrow']}
               color="primary"
             />
-            <div className={styles['parameters__changeable-value']}>5</div>
+            <div className={styles['parameters__cell']}>5</div>
             <ArrowForwardIosOutlinedIcon
               className={styles['parameters__arrow']}
               color="primary"
@@ -27,149 +31,137 @@ function Parameters(): JSX.Element {
         </div>
 
         <ul>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Сила:</div>
-            <div className={styles['parameters__block']}>
-              <ArrowBackIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-              />
-              <div className={styles['parameters__changeable-value']}>29</div>
-              <ArrowForwardIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-              />
-            </div>
-          </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Стойкость:</div>
-            <div className={styles['parameters__block']}>
-              <ArrowBackIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-              />
-              <div className={styles['parameters__changeable-value']}>30</div>
-              <ArrowForwardIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-              />
-            </div>
-          </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Ловкость:</div>
-            <div className={styles['parameters__block']}>
-              <ArrowBackIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-              />
-              <div className={styles['parameters__changeable-value']}>10</div>
-              <ArrowForwardIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-              />
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__headline']}>Параметры</div>
+            <div className={styles['parameters__values']}>
+              <div className={styles['parameters__headline']}>
+                База
+              </div>
+              <div className={styles['parameters__headline']}>
+                Итог
+              </div>
             </div>
           </li>
 
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Урон персонажа:</div>
-            <div className={styles['parameters__block']}>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__description']}>
+              <SportsMartialArtsOutlinedIcon color="primary" />
+              Сила:
+            </div>
+            <div className={styles['parameters__values']}>
+              <div className={styles['parameters__changeable-value']}>
+                <ArrowBackIosOutlinedIcon
+                  className={styles['parameters__arrow']}
+                  color="primary"
+                />
+                <div className={styles['parameters__cell']}>29</div>
+                <ArrowForwardIosOutlinedIcon
+                  className={styles['parameters__arrow']}
+                  color="primary"
+                />
+              </div>
               <div className={styles['parameters__unchangeable-value']}>116</div>
             </div>
           </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Критический урон:</div>
-            <div className={styles['parameters__block']}>
-              <div className={styles['parameters__unchangeable-value']}>8,7%</div>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__description']}>
+              <HikingOutlinedIcon color="primary" />
+              Стойкость:
+            </div>
+            <div className={styles['parameters__values']}>
+              <div className={styles['parameters__changeable-value']}>
+                <ArrowBackIosOutlinedIcon
+                  className={styles['parameters__arrow']}
+                  color="primary"
+                />
+                <div className={styles['parameters__cell']}>30</div>
+                <ArrowForwardIosOutlinedIcon
+                  className={styles['parameters__arrow']}
+                  color="primary"
+                />
+              </div>
+              <div className={styles['parameters__unchangeable-value']}>145</div>
             </div>
           </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Максимальное количество здоровья:</div>
-            <div className={styles['parameters__block']}>
-              <div className={styles['parameters__unchangeable-value']}>600</div>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__description']}>
+              <SurfingOutlinedIcon color="primary" />
+              Ловкость:
+            </div>
+            <div className={styles['parameters__values']}>
+              <div className={styles['parameters__changeable-value']}>
+                <ArrowBackIosOutlinedIcon
+                  className={styles['parameters__arrow']}
+                  color="primary"
+                />
+                <div className={styles['parameters__cell']}>10</div>
+                <ArrowForwardIosOutlinedIcon
+                  className={styles['parameters__arrow']}
+                  color="primary"
+                />
+              </div>
+              <div className={styles['parameters__unchangeable-value']}>32</div>
             </div>
           </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Стойкость к магии:</div>
-            <div className={styles['parameters__block']}>
-              <div className={styles['parameters__unchangeable-value']}>3%</div>
-            </div>
-          </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Шанс на крит:</div>
-            <div className={styles['parameters__block']}>
-              <div className={styles['parameters__unchangeable-value']}>1,50%</div>
-            </div>
-          </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Шанс уклонения:</div>
-            <div className={styles['parameters__block']}>
-              <div className={styles['parameters__unchangeable-value']}>1,50%</div>
-            </div>
-          </li>
-        </ul>
-      </section>
 
-      <section className={styles['parameters']}>
-        <h2 className={styles['parameters__title']}>Итоговые характеристики персонажа</h2>
-
-        <ul>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Сила:</div>
-            <div className={styles['parameters__block']}>
-              <div className={styles['parameters__unchangeable-value']}>29</div>
-            </div>
-          </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Стойкость:</div>
-            <div className={styles['parameters__block']}>
-              <div className={styles['parameters__unchangeable-value']}>30</div>
-            </div>
-          </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Ловкость:</div>
-            <div className={styles['parameters__block']}>
-              <div className={styles['parameters__unchangeable-value']}>10</div>
-            </div>
-          </li>
-          <li className={styles['parameters__parent']}>
+          <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Урон персонажа:</div>
-            <div className={styles['parameters__block']}>
+            <div className={styles['parameters__values']}>
               <div className={styles['parameters__unchangeable-value']}>116</div>
+              <div className={styles['parameters__unchangeable-value']}>323</div>
             </div>
           </li>
-          <li className={styles['parameters__parent']}>
+          <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Критический урон:</div>
-            <div className={styles['parameters__block']}>
+            <div className={styles['parameters__values']}>
               <div className={styles['parameters__unchangeable-value']}>8,7%</div>
+              <div className={styles['parameters__unchangeable-value']}>20%</div>
             </div>
           </li>
-          <li className={styles['parameters__parent']}>
-            <div className={styles['parameters__description']}>Максимальное количество здоровья:</div>
-            <div className={styles['parameters__block']}>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__description']}>Макс. кол-во здоровья:</div>
+            <div className={styles['parameters__values']}>
               <div className={styles['parameters__unchangeable-value']}>600</div>
+              <div className={styles['parameters__unchangeable-value']}>1600</div>
             </div>
           </li>
-          <li className={styles['parameters__parent']}>
+          <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Стойкость к магии:</div>
-            <div className={styles['parameters__block']}>
+            <div className={styles['parameters__values']}>
               <div className={styles['parameters__unchangeable-value']}>3%</div>
+              <div className={styles['parameters__unchangeable-value']}>15%</div>
             </div>
           </li>
-          <li className={styles['parameters__parent']}>
+          <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Шанс на крит:</div>
-            <div className={styles['parameters__block']}>
+            <div className={styles['parameters__values']}>
               <div className={styles['parameters__unchangeable-value']}>1,50%</div>
+              <div className={styles['parameters__unchangeable-value']}>34%</div>
             </div>
           </li>
-          <li className={styles['parameters__parent']}>
+          <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Шанс уклонения:</div>
-            <div className={styles['parameters__block']}>
+            <div className={styles['parameters__values']}>
               <div className={styles['parameters__unchangeable-value']}>1,50%</div>
+              <div className={styles['parameters__unchangeable-value']}>37,70%</div>
+            </div>
+          </li>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__description']}>Защита:</div>
+            <div className={styles['parameters__values']}>
+              <div className={styles['parameters__unchangeable-value']}>0</div>
+              <div className={styles['parameters__unchangeable-value']}>3,3</div>
+            </div>
+          </li>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__points']}>Свободные очки характеристик: <b>110</b></div>
+            <div className={styles['parameters__values']}>
+              <Button variant="contained">Сброс</Button>
             </div>
           </li>
         </ul>
-      </section>
 
+      </section>
     </section>
   );
 }

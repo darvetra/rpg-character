@@ -26,49 +26,65 @@
   background: linear-gradient(97.68deg, #3478e7 .81%, #3cbeea 29.68%, #5dcaee 49.24%, #3cbeea 68.34%, #4397e7 86.12%);
 }
 
-.parameters__parent {
-  padding: 0 20px;
+.parameters__row {
+  margin: 0 20px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  &:first-child {
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 1px dashed index.$white50;
+  }
+
+  &:last-child {
+    padding-top: 15px;
+    border-top: 1px dashed index.$white50;
+  }
+
+  &:last-child .parameters__values {
+    width: 120px;
+  }
 }
 
 .parameters__description {
-  font-size: 16px;
+  font-size: 1rem;
   text-transform: uppercase;
+  vertical-align: middle;
+  flex-direction: row;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+}
+
+.parameters__points {
+  font-size: 1rem;
   vertical-align: middle;
 }
 
-.parameters__block {
+.parameters__values {
   display: flex;
+  flex-direction: row;
   justify-content: center; /*Центрирование по горизонтали*/
   align-items: center; /*Центрирование по вертикали */
-  width: 120px;
-  height: 38px;
 }
 
-.parameters__arrow {
-  transition: .5s ease-in-out;
-
-
-  &:hover,
-  &:focus {
-    opacity: 0.8;
-    cursor: pointer;
-  }
+.parameters__headline {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-width: 120px;
 }
 
 .parameters__changeable-value {
   display: flex;
+  flex-direction: row;
   justify-content: center; /*Центрирование по горизонтали*/
   align-items: center; /*Центрирование по вертикали */
-  font-size: 1rem;
-  font-weight: bold;
-  border: 1px index.$white50 solid;
-  height: 38px;
-  width: 70px;
+  width: 120px;
 }
 
 .parameters__unchangeable-value {
@@ -78,4 +94,27 @@
   font-size: 1rem;
   font-weight: bold;
   height: 38px;
+  width: 120px;
+}
+
+.parameters__cell {
+  display: flex;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px index.$white50 solid;
+  height: 38px;
+  width: 70px;
+  border-radius: 4px;
+}
+
+.parameters__arrow {
+  transition: .5s ease-in-out;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 }
