@@ -83,25 +83,3 @@ ul {
   }
 }
 
-// Переопределение стилей MUI
-// Combobox
-.MuiOutlinedInput-notchedOutline {
-  border-color: $white50!important;
-}
-
-.MuiFormLabel-root {
-  color: $white10!important;
-}
-
-.MuiInputBase-input {
-  color: $white10!important;
-}
-
-.MuiSvgIcon-root {
-  color: $white10!important;
-}
-
-// Иконки
-.MuiSvgIcon-colorPrimary {
-  color: $white50!important;
-}

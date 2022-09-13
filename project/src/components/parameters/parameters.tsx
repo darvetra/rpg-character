@@ -156,12 +156,17 @@ function Parameters(): JSX.Element {
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__points']}>Свободные очки характеристик: <b>110</b></div>
             <div className={styles['parameters__values']}>
-              <Button variant="contained">Сброс</Button>
+              <Button
+                variant="contained"
+              >
+                Сброс
+              </Button>
             </div>
           </li>
         </ul>
 
       </section>
+
     </section>
   );
 }
