@@ -1,0 +1,97 @@
+@import-normalize; /* bring in normalize.css styles */
+
+// Цвета
+$white: rgba(255, 255, 255, 100);
+$white50: rgba(255, 255, 255, 0.5);
+$white10: rgba(255, 255, 255, 0.1);
+$black: rgba(0, 0, 0, 100);
+$translucent-black: rgba(0, 0, 0, 0.8);
+$dark-grey: rgba(28, 28, 28, 100);
+
+// Отступы
+//$mobile-indent: 20px;
+$mobile-indent: 1vw;
+$tablet-indent: 30px;
+$desktop-indent: 40px;
+//$tablet-indent-form: 70px;
+
+// Ширины
+$tablet-width: 768px;
+$desktop-width: 1300px;
+//$content-width: $desktop-width - ($desktop-indent * 2); // 1300 - 80 = 1220
+$content-width: 64vw;
+
+%section__title {
+  padding: 20px;
+  margin: 0;
+  margin-bottom: 20px;
+  border-top-left-radius: 0.5vw;
+  border-top-right-radius: 0.5vw;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  background: linear-gradient(97.68deg, #3478e7 .81%, #3cbeea 29.68%, #5dcaee 49.24%, #3cbeea 68.34%, #4397e7 86.12%);
+}
+
+// Глобальные
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  background-color: $dark-grey;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: $white;
+  line-height: 1;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+  letter-spacing: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@media (min-width: $desktop-width) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+}
+

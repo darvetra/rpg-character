@@ -1,0 +1,73 @@
+@use "../../index";
+
+.header {
+  padding: 0;
+  display: flex;
+}
+
+.header__container {
+  margin: 0 auto;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.header__logo {
+  display: flex;
+  transition: .5s ease-in-out;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.header__logo p {
+  margin-left: 10px;
+  color: index.$white50;
+}
+
+
+@media (min-width: index.$tablet-width) {
+
+  .header__container {
+    padding: 0 index.$tablet-indent;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 20px;
+  }
+
+}
+
+@media (min-width: index.$desktop-width) {
+
+  .header {
+    min-height: 84px;
+    width: 100%;
+    position: relative;
+    z-index: 100;
+  }
+
+  .header__container {
+    max-width: index.$content-width;
+    padding: 0;
+
+    display: flex;
+    align-items: center; /*Центрирование по вертикали */
+  }
+
+  .header__logo p {
+    font-size: 2rem;
+    font-weight: bold;
+
+  }
+
+}

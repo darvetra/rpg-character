@@ -1,0 +1,65 @@
+@use "../../index";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+}
+.footer__info {
+  margin: 22px 20px;
+  margin-bottom: 35px;
+}
+
+.footer__bg {
+  display: none;
+}
+
+@media (min-width: index.$tablet-width) {
+  .footer__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .footer__info {
+    margin-top: 120px;
+  }
+
+  .footer__bg {
+    display: inline-block;
+  }
+
+  .footer__bg-mobile {
+    display: none;
+  }
+
+}
+
+@media (min-width: index.$desktop-width) {
+  .footer__container {
+    max-width: index.$content-width;
+    padding: 0;
+  }
+
+  .footer__info {
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .footer__bg {
+    pointer-events: none;
+    display: inline-block;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    //bottom: 0;
+    width: 100%;
+  }
+
+}

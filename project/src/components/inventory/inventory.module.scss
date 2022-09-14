@@ -1,0 +1,53 @@
+@use "../../index";
+
+.inventory {
+  padding: 0;
+  display: flex;
+}
+
+.inventory__container {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  flex-direction: column;
+  background-color: index.$translucent-black;
+  border-radius: 0.5vw;
+}
+
+.inventory__title {
+  @extend %section__title;}
+
+.inventory__section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.inventory__slot {
+  display: flex;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+
+  box-shadow: 0 0.4vw 1.5vw index.$dark-grey;
+  border-radius: 0.9vw;
+  margin-bottom: .5vw;
+  margin-right: .5vw;
+  width: 3.89vw;
+  height: 3.89vw;
+}
+
+@media (min-width: index.$desktop-width) {
+
+  .inventory {
+      //margin-bottom: -60px;
+  }
+
+  .inventory__container {
+    max-width: index.$content-width;
+    padding: 0;
+    border: none;
+    //margin-bottom: 60px;
+  }
+
+}

@@ -1,0 +1,108 @@
+@use "../../index";
+@use "src/components/character/character.module";
+
+
+.parameters {
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  background-color: index.$translucent-black;
+  border-radius: 0.5vw;
+  box-shadow: 0 0.4vw 1.5vw index.$black;
+}
+
+.parameters ul {
+  padding: 0;
+  margin: 0;
+}
+
+.parameters__title {
+  @extend %section__title;
+}
+
+.parameters__row {
+  margin: 0 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &:first-child {
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 1px dashed index.$white50;
+  }
+
+  &:last-child {
+    padding-top: 15px;
+    border-top: 1px dashed index.$white50;
+  }
+}
+
+.parameters__description {
+  font-size: 1rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-direction: row;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+  flex-grow: 1;
+}
+
+.parameters__points {
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.parameters__headline {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-width: 120px;
+
+  &:first-child {
+    flex-grow: 1;
+    text-align: left;
+  }
+}
+
+.parameters__changeable-value {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+  width: 120px;
+}
+
+.parameters__unchangeable-value {
+  display: flex;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+  font-size: 1rem;
+  font-weight: bold;
+  height: 38px;
+  width: 120px;
+}
+
+.parameters__cell {
+  display: flex;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px index.$white50 solid;
+  height: 38px;
+  width: 70px;
+  border-radius: 4px;
+}
+
+.parameters__arrow {
+  transition: .5s ease-in-out;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}

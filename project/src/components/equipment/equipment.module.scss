@@ -1,0 +1,60 @@
+@use "../../index";
+@use "src/components/character/character.module";
+
+.equipment {
+  background-color: index.$black;
+  border-radius: 0.5vw;
+  box-shadow: 0 0.4vw 1.5vw index.$black;
+}
+
+.equipment__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  background-image: url(/img/character.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.equipment__title {
+  @extend %section__title;
+}
+
+.equipment__column {
+  list-style: none;
+  padding: 0;
+
+  &:first-child {
+    padding-left: 20px;
+  }
+
+  &:last-child {
+    padding-right: 20px;
+    float: right;
+  }
+  
+}
+
+.equipment__slot {
+  display: flex;
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по вертикали */
+
+  box-shadow: 0 0.4vw 1.5vw index.$dark-grey;
+  border-radius: 0.9vw;
+  margin-bottom: .4861111111vw;
+  width: 4vw;
+  height: 4vw;
+}
+
+.equipment__slot img {
+  width: 3.8vw;
+  height: 3.8vw;
+}
+

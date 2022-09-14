@@ -1,0 +1,68 @@
+@use "../../index";
+
+.character {
+  padding: 0;
+  display: flex;
+}
+
+.character__container {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  //padding: 0 index.$mobile-indent;
+}
+
+.character__block {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.character__item {
+  //padding: 0 index.$mobile-indent;
+  padding: 0;
+  position: relative;
+  min-height: 600px;
+}
+
+@media (min-width: index.$tablet-width) {
+
+  .character__container {
+    padding: 0 index.$tablet-indent;
+  }
+
+  .character__item {
+    margin: 0;
+    margin-bottom: index.$tablet-indent;
+    min-height: 372px;
+  }
+
+}
+
+@media (min-width: index.$desktop-width) {
+
+  .character {
+    margin-top: 20px;
+  }
+
+  .character__container {
+    max-width: index.$content-width;
+    padding: 0;
+  }
+
+  .character__block {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .character__item {
+    min-width: 29vw;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+
+  .character__item:first-child {
+    margin-right: 2vw;
+  }
+
+}
