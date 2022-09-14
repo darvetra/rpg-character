@@ -1,6 +1,7 @@
 import Header from '../../components/header/header';
 import Character from '../../components/character/character';
 import Inventory from '../../components/inventory/inventory';
+import Footer from '../../components/footer/footer';
 
 import styles from './main-screen.module.scss';
 
@@ -17,10 +18,7 @@ function MainScreen(): JSX.Element {
         <Inventory />
       </main>
 
-      <footer className="footer">
-        <p>Official resourses</p>
-        <p>Created by</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
