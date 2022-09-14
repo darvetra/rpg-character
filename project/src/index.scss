@@ -21,6 +21,17 @@ $desktop-width: 1300px;
 //$content-width: $desktop-width - ($desktop-indent * 2); // 1300 - 80 = 1220
 $content-width: 64vw;
 
+%section__title {
+  padding: 20px;
+  margin: 0;
+  margin-bottom: 20px;
+  border-top-left-radius: 0.5vw;
+  border-top-right-radius: 0.5vw;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  background: linear-gradient(97.68deg, #3478e7 .81%, #3cbeea 29.68%, #5dcaee 49.24%, #3cbeea 68.34%, #4397e7 86.12%);
+}
+
 // Глобальные
 html {
   box-sizing: border-box;
@@ -60,6 +71,7 @@ a {
 ul {
   list-style-type: none;
 }
+
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
 
