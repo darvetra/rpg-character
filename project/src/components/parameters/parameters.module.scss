@@ -44,10 +44,6 @@
     padding-top: 15px;
     border-top: 1px dashed index.$white50;
   }
-
-  &:last-child .parameters__values {
-    width: 120px;
-  }
 }
 
 .parameters__description {
@@ -57,18 +53,12 @@
   flex-direction: row;
   justify-content: center; /*Центрирование по горизонтали*/
   align-items: center; /*Центрирование по вертикали */
+  flex-grow: 1;
 }
 
 .parameters__points {
   font-size: 1rem;
   vertical-align: middle;
-}
-
-.parameters__values {
-  display: flex;
-  flex-direction: row;
-  justify-content: center; /*Центрирование по горизонтали*/
-  align-items: center; /*Центрирование по вертикали */
 }
 
 .parameters__headline {
@@ -77,6 +67,11 @@
   font-size: 1.1rem;
   font-weight: bold;
   min-width: 120px;
+
+  &:first-child {
+    flex-grow: 1;
+    text-align: left;
+  }
 }
 
 .parameters__changeable-value {
