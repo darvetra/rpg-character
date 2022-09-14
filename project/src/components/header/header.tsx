@@ -9,10 +9,10 @@ import styles from './header.module.scss';
 function Header(): JSX.Element {
 
   return (
-    <header className={styles.header}>
-      <div className={styles.header__wrapper}>
+    <header className={styles['header']}>
+      <div className={styles['header__container']}>
         <a
-          className={styles.header__logo}
+          className={styles['header__logo']}
           href="/"
         >
           <picture>

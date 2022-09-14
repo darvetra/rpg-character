@@ -6,9 +6,9 @@ import styles from './character.module.scss';
 function Character(): JSX.Element {
 
   return (
-    <section className={styles.character}>
-      <div className={styles.character__wrapper}>
-        <div className={styles.character__block}>
+    <section className={styles['character']}>
+      <div className={styles['character__container']}>
+        <div className={styles['character__block']}>
           <Parameters />
           <Equipment />
         </div>

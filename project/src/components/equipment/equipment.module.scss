@@ -3,15 +3,11 @@
 
 .equipment {
   background-color: index.$black;
-  background-image: url(/img/character.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
   border-radius: 0.5vw;
   box-shadow: 0 0.4vw 1.5vw index.$black;
 }
 
-.equipment__wrapper {
+.equipment__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -19,6 +15,22 @@
   padding: 0;
   margin: 0;
   width: 100%;
+
+  background-image: url(/img/character.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.equipment__title {
+  padding: 20px;
+  margin: 0;
+  margin-bottom: 20px;
+  border-top-left-radius: 0.5vw;
+  border-top-right-radius: 0.5vw;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  background: linear-gradient(97.68deg, #3478e7 .81%, #3cbeea 29.68%, #5dcaee 49.24%, #3cbeea 68.34%, #4397e7 86.12%);
 }
 
 .equipment__column {

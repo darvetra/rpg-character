@@ -14,6 +14,7 @@ function Footer(): JSX.Element {
             size="large"
             href="https://google.com/"
             target="_blank"
+            disabled
           >
             Official game resourses
           </Button>

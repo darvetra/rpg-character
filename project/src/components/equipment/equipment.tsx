@@ -5,9 +5,9 @@ function Equipment(): JSX.Element {
   return (
     <section className={styles['character__item']}>
       <section className={styles['equipment']}>
-        <h2 className={styles['visually-hidden']}>Экипировка персонажа</h2>
+        <h2 className={styles['equipment__title']}>Экипировка персонажа</h2>
 
-        <div className={styles['equipment__wrapper']}>
+        <div className={styles['equipment__container']}>
           <ul className={styles['equipment__column']}>
             <li className={styles['equipment__slot']}>
             </li>

@@ -5,7 +5,7 @@
   display: flex;
 }
 
-.character__wrapper {
+.character__container {
   display: flex;
   margin: 0 auto;
   width: 100%;
@@ -26,7 +26,8 @@
 }
 
 @media (min-width: index.$tablet-width) {
-  .character__wrapper {
+
+  .character__container {
     padding: 0 index.$tablet-indent;
   }
 
@@ -35,14 +36,16 @@
     margin-bottom: index.$tablet-indent;
     min-height: 372px;
   }
+
 }
 
 @media (min-width: index.$desktop-width) {
+
   .character {
     margin-top: 20px;
   }
 
-  .character__wrapper {
+  .character__container {
     max-width: index.$content-width;
     padding: 0;
   }
@@ -55,10 +58,11 @@
   .character__item {
     min-width: 29vw;
     flex-grow: 1;
-    margin-bottom: 59px;
+    margin-bottom: 20px;
   }
 
   .character__item:first-child {
     margin-right: 2vw;
   }
+
 }

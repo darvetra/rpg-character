@@ -5,7 +5,7 @@
   display: flex;
 }
 
-.header__wrapper {
+.header__container {
   margin: 0 auto;
   width: 100%;
 
@@ -35,7 +35,8 @@
 
 
 @media (min-width: index.$tablet-width) {
-  .header__wrapper {
+
+  .header__container {
     padding: 0 index.$tablet-indent;
 
     flex-direction: row;
@@ -44,10 +45,10 @@
     margin-top: 20px;
   }
 
-
 }
 
 @media (min-width: index.$desktop-width) {
+
   .header {
     min-height: 84px;
     width: 100%;
@@ -55,7 +56,7 @@
     z-index: 100;
   }
 
-  .header__wrapper {
+  .header__container {
     max-width: index.$content-width;
     padding: 0;
 
@@ -68,4 +69,5 @@
     font-weight: bold;
 
   }
+
 }

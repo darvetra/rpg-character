@@ -17,7 +17,7 @@ function Inventory(): JSX.Element {
 
   return (
     <section className={styles['inventory']}>
-      <div className={styles['inventory__wrapper']}>
+      <div className={styles['inventory__container']}>
         <h2 className={styles['inventory__title']}>Инвентарь персонажа</h2>
 
         <Box>
