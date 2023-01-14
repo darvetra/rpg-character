@@ -29,7 +29,7 @@ function Header(): JSX.Element {
               src={require('../../img/logo.png')}
             />
           </picture>
-          <p>RPG Character</p>
+          <p>ROTGAR.GUIDE</p>
         </a>
 
         <Autocomplete

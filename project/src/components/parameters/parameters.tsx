@@ -1,3 +1,16 @@
+import {useState} from 'react';
+
+import {roundTwoDecimalPlaces} from '../../utils';
+import {
+  HEALTH_PER_LEVEL,
+  DAMAGE_PER_LEVEL,
+  DEFENSE_PER_LEVEL,
+  CRIT_DAMAGE_PER_LEVEL,
+  CRIT_CHANCE_PER_LEVEL,
+  DODGE_PER_LEVEL,
+  DOUBLE_DEFENSE_PER_LEVEL
+} from '../../const';
+
 import {Button} from '@mui/material';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
@@ -11,6 +24,26 @@ import styles from './parameters.module.scss';
 
 function Parameters(): JSX.Element {
 
+  const [level, setlevel] = useState({
+    count: 1,
+    // exp: 0,
+    // expToNextLvl: 100 (10/5),
+    points: 10,
+    // strength: 0,
+    // stamina: 0,
+    // agility: 0,
+    health: 300,
+    damage: 75,
+    defense: 3,
+    critDamage: 161,
+    critChance: 7,
+    dodge: 1.5,
+    doubleChance: 0.5,
+  });
+
+  const {count, points, health, damage, defense, critDamage, critChance, dodge, doubleChance} = level;
+
+
   return (
     <section className={styles['character__item']}>
       <section className={styles['parameters']}>
@@ -18,15 +51,47 @@ function Parameters(): JSX.Element {
 
         <div className={styles['parameters__row']}>
           <div className={styles['parameters__description']}>Уровень персонажа:</div>
+
           <ArrowBackIosOutlinedIcon
             className={styles['parameters__arrow']}
             color="primary"
+            onClick={() => {
+              setlevel({
+                ...level,
+                count: count - 1,
+                points: points - 1,
+                health: health - HEALTH_PER_LEVEL,
+                damage: damage - DAMAGE_PER_LEVEL,
+                defense: roundTwoDecimalPlaces(defense - DEFENSE_PER_LEVEL),
+                critDamage: critDamage - CRIT_DAMAGE_PER_LEVEL,
+                critChance: roundTwoDecimalPlaces(critChance - CRIT_CHANCE_PER_LEVEL),
+                dodge: roundTwoDecimalPlaces(dodge - DODGE_PER_LEVEL),
+                doubleChance: roundTwoDecimalPlaces(doubleChance - DOUBLE_DEFENSE_PER_LEVEL),
+              });
+            }}
           />
-          <div className={styles['parameters__cell']}>5</div>
+
+          <div className={styles['parameters__cell']}>{count}</div>
+
           <ArrowForwardIosOutlinedIcon
             className={styles['parameters__arrow']}
             color="primary"
+            onClick={() => {
+              setlevel({
+                ...level,
+                count: count + 1,
+                points: points + 1,
+                health: Math.round(health + HEALTH_PER_LEVEL),
+                damage: Math.round(damage + DAMAGE_PER_LEVEL),
+                defense: roundTwoDecimalPlaces(defense + DEFENSE_PER_LEVEL),
+                critDamage: critDamage + CRIT_DAMAGE_PER_LEVEL,
+                critChance: roundTwoDecimalPlaces(critChance + CRIT_CHANCE_PER_LEVEL),
+                dodge: roundTwoDecimalPlaces(dodge + DODGE_PER_LEVEL),
+                doubleChance: roundTwoDecimalPlaces(doubleChance + DOUBLE_DEFENSE_PER_LEVEL),
+              });
+            }}
           />
+
         </div>
 
         <ul>
@@ -35,10 +100,7 @@ function Parameters(): JSX.Element {
               Параметры
             </div>
             <div className={styles['parameters__headline']}>
-              База
-            </div>
-            <div className={styles['parameters__headline']}>
-              Итог
+              Значение
             </div>
           </li>
 
@@ -58,7 +120,6 @@ function Parameters(): JSX.Element {
                 color="primary"
               />
             </div>
-            <div className={styles['parameters__unchangeable-value']}>116</div>
           </li>
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>
@@ -76,7 +137,6 @@ function Parameters(): JSX.Element {
                 color="primary"
               />
             </div>
-            <div className={styles['parameters__unchangeable-value']}>145</div>
           </li>
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>
@@ -94,46 +154,38 @@ function Parameters(): JSX.Element {
                 color="primary"
               />
             </div>
-            <div className={styles['parameters__unchangeable-value']}>32</div>
           </li>
 
           <li className={styles['parameters__row']}>
-            <div className={styles['parameters__description']}>Урон персонажа:</div>
-            <div className={styles['parameters__unchangeable-value']}>116</div>
-            <div className={styles['parameters__unchangeable-value']}>323</div>
+            <div className={styles['parameters__description']}>Здоровье:</div>
+            <div className={styles['parameters__unchangeable-value']}>{health}</div>
           </li>
           <li className={styles['parameters__row']}>
-            <div className={styles['parameters__description']}>Критический урон:</div>
-            <div className={styles['parameters__unchangeable-value']}>8,7%</div>
-            <div className={styles['parameters__unchangeable-value']}>20%</div>
-          </li>
-          <li className={styles['parameters__row']}>
-            <div className={styles['parameters__description']}>Макс. кол-во здоровья:</div>
-            <div className={styles['parameters__unchangeable-value']}>600</div>
-            <div className={styles['parameters__unchangeable-value']}>1600</div>
-          </li>
-          <li className={styles['parameters__row']}>
-            <div className={styles['parameters__description']}>Стойкость к магии:</div>
-            <div className={styles['parameters__unchangeable-value']}>3%</div>
-            <div className={styles['parameters__unchangeable-value']}>15%</div>
-          </li>
-          <li className={styles['parameters__row']}>
-            <div className={styles['parameters__description']}>Шанс на крит:</div>
-            <div className={styles['parameters__unchangeable-value']}>1,50%</div>
-            <div className={styles['parameters__unchangeable-value']}>34%</div>
-          </li>
-          <li className={styles['parameters__row']}>
-            <div className={styles['parameters__description']}>Шанс уклонения:</div>
-            <div className={styles['parameters__unchangeable-value']}>1,50%</div>
-            <div className={styles['parameters__unchangeable-value']}>37,70%</div>
+            <div className={styles['parameters__description']}>Урон:</div>
+            <div className={styles['parameters__unchangeable-value']}>{damage}</div>
           </li>
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Защита:</div>
-            <div className={styles['parameters__unchangeable-value']}>0</div>
-            <div className={styles['parameters__unchangeable-value']}>3,3</div>
+            <div className={styles['parameters__unchangeable-value']}>{defense} %</div>
           </li>
           <li className={styles['parameters__row']}>
-            <div className={styles['parameters__points']}>Свободные очки характеристик: <b>110</b></div>
+            <div className={styles['parameters__description']}>Критический урон:</div>
+            <div className={styles['parameters__unchangeable-value']}>{critDamage}</div>
+          </li>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__description']}>Шанс на крит:</div>
+            <div className={styles['parameters__unchangeable-value']}>{critChance} %</div>
+          </li>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__description']}>Шанс уворота:</div>
+            <div className={styles['parameters__unchangeable-value']}>{dodge} %</div>
+          </li>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__description']}>Шанс двойного удара:</div>
+            <div className={styles['parameters__unchangeable-value']}>{doubleChance} %</div>
+          </li>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__points']}>Свободные очки характеристик: <b>{points}</b></div>
             <Button
               variant="contained"
               startIcon={<RestartAltOutlinedIcon />}

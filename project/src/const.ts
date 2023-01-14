@@ -1,1 +1,20 @@
-export const lang = ['English', 'Russian'];
+const lang = ['English', 'Russian'];
+
+const HEALTH_PER_LEVEL = 100;
+const DAMAGE_PER_LEVEL = 7;
+const DEFENSE_PER_LEVEL = 0.5;
+const CRIT_DAMAGE_PER_LEVEL = 9;
+const CRIT_CHANCE_PER_LEVEL = 0.3;
+const DODGE_PER_LEVEL = 0.4;
+const DOUBLE_DEFENSE_PER_LEVEL = 0.7;
+
+export {
+  lang,
+  HEALTH_PER_LEVEL,
+  DAMAGE_PER_LEVEL,
+  DEFENSE_PER_LEVEL,
+  CRIT_DAMAGE_PER_LEVEL,
+  CRIT_CHANCE_PER_LEVEL,
+  DODGE_PER_LEVEL,
+  DOUBLE_DEFENSE_PER_LEVEL
+};
