@@ -1,5 +1,7 @@
 const lang = ['English', 'Russian'];
 
+const FIRST_LEVEL = 1;
+
 const HEALTH_PER_LEVEL = 100;
 const DAMAGE_PER_LEVEL = 7;
 const DEFENSE_PER_LEVEL = 0.5;
@@ -10,6 +12,7 @@ const DOUBLE_DEFENSE_PER_LEVEL = 0.7;
 
 export {
   lang,
+  FIRST_LEVEL,
   HEALTH_PER_LEVEL,
   DAMAGE_PER_LEVEL,
   DEFENSE_PER_LEVEL,

@@ -24,8 +24,8 @@ import styles from './parameters.module.scss';
 
 function Parameters(): JSX.Element {
 
-  const [level, setlevel] = useState({
-    count: 1,
+  const [countLevel, setCountLevel] = useState({
+    level: 1,
     // exp: 0,
     // expToNextLvl: 100 (10/5),
     points: 10,
@@ -41,7 +41,7 @@ function Parameters(): JSX.Element {
     doubleChance: 0.5,
   });
 
-  const {count, points, health, damage, defense, critDamage, critChance, dodge, doubleChance} = level;
+  const {level, points, health, damage, defense, critDamage, critChance, dodge, doubleChance} = countLevel;
 
 
   return (
@@ -56,9 +56,9 @@ function Parameters(): JSX.Element {
             className={styles['parameters__arrow']}
             color="primary"
             onClick={() => {
-              setlevel({
-                ...level,
-                count: count - 1,
+              setCountLevel({
+                ...countLevel,
+                level: level - 1,
                 points: points - 1,
                 health: health - HEALTH_PER_LEVEL,
                 damage: damage - DAMAGE_PER_LEVEL,
@@ -71,15 +71,15 @@ function Parameters(): JSX.Element {
             }}
           />
 
-          <div className={styles['parameters__cell']}>{count}</div>
+          <div className={styles['parameters__cell']}>{level}</div>
 
           <ArrowForwardIosOutlinedIcon
             className={styles['parameters__arrow']}
             color="primary"
             onClick={() => {
-              setlevel({
-                ...level,
-                count: count + 1,
+              setCountLevel({
+                ...countLevel,
+                level: level + 1,
                 points: points + 1,
                 health: Math.round(health + HEALTH_PER_LEVEL),
                 damage: Math.round(damage + DAMAGE_PER_LEVEL),
