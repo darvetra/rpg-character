@@ -1,15 +1,5 @@
-import {useState} from 'react';
-
-import {roundTwoDecimalPlaces} from '../../utils';
-import {
-  HEALTH_PER_LEVEL,
-  DAMAGE_PER_LEVEL,
-  DEFENSE_PER_LEVEL,
-  CRIT_DAMAGE_PER_LEVEL,
-  CRIT_CHANCE_PER_LEVEL,
-  DODGE_PER_LEVEL,
-  DOUBLE_DEFENSE_PER_LEVEL
-} from '../../const';
+import {useAppSelector, useAppDispatch} from '../../hooks';
+import {incrementLevel, decrementLevel} from '../../store/action';
 
 import {Button} from '@mui/material';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
@@ -23,25 +13,10 @@ import styles from './parameters.module.scss';
 
 
 function Parameters(): JSX.Element {
-
-  const [countLevel, setCountLevel] = useState({
-    level: 1,
-    // exp: 0,
-    // expToNextLvl: 100 (10/5),
-    points: 10,
-    // strength: 0,
-    // stamina: 0,
-    // agility: 0,
-    health: 300,
-    damage: 75,
-    defense: 3,
-    critDamage: 161,
-    critChance: 7,
-    dodge: 1.5,
-    doubleChance: 0.5,
-  });
-
+  const countLevel = useAppSelector((state) => state);
   const {level, points, health, damage, defense, critDamage, critChance, dodge, doubleChance} = countLevel;
+
+  const dispatch = useAppDispatch();
 
 
   return (
@@ -55,20 +30,7 @@ function Parameters(): JSX.Element {
           <ArrowBackIosOutlinedIcon
             className={styles['parameters__arrow']}
             color="primary"
-            onClick={() => {
-              setCountLevel({
-                ...countLevel,
-                level: level - 1,
-                points: points - 1,
-                health: health - HEALTH_PER_LEVEL,
-                damage: damage - DAMAGE_PER_LEVEL,
-                defense: roundTwoDecimalPlaces(defense - DEFENSE_PER_LEVEL),
-                critDamage: critDamage - CRIT_DAMAGE_PER_LEVEL,
-                critChance: roundTwoDecimalPlaces(critChance - CRIT_CHANCE_PER_LEVEL),
-                dodge: roundTwoDecimalPlaces(dodge - DODGE_PER_LEVEL),
-                doubleChance: roundTwoDecimalPlaces(doubleChance - DOUBLE_DEFENSE_PER_LEVEL),
-              });
-            }}
+            onClick={() => dispatch(decrementLevel())}
           />
 
           <div className={styles['parameters__cell']}>{level}</div>
@@ -76,20 +38,7 @@ function Parameters(): JSX.Element {
           <ArrowForwardIosOutlinedIcon
             className={styles['parameters__arrow']}
             color="primary"
-            onClick={() => {
-              setCountLevel({
-                ...countLevel,
-                level: level + 1,
-                points: points + 1,
-                health: Math.round(health + HEALTH_PER_LEVEL),
-                damage: Math.round(damage + DAMAGE_PER_LEVEL),
-                defense: roundTwoDecimalPlaces(defense + DEFENSE_PER_LEVEL),
-                critDamage: critDamage + CRIT_DAMAGE_PER_LEVEL,
-                critChance: roundTwoDecimalPlaces(critChance + CRIT_CHANCE_PER_LEVEL),
-                dodge: roundTwoDecimalPlaces(dodge + DODGE_PER_LEVEL),
-                doubleChance: roundTwoDecimalPlaces(doubleChance + DOUBLE_DEFENSE_PER_LEVEL),
-              });
-            }}
+            onClick={() => dispatch(incrementLevel())}
           />
 
         </div>
