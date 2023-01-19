@@ -1,5 +1,14 @@
 import {useAppSelector, useAppDispatch} from '../../hooks';
-import {incrementLevel, decrementLevel} from '../../store/action';
+import {
+  incrementLevel,
+  decrementLevel,
+  incrementStrength,
+  decrementStrength,
+  incrementStamina,
+  decrementStamina,
+  incrementAgility,
+  decrementAgility
+} from '../../store/action';
 
 import {Button} from '@mui/material';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
@@ -14,7 +23,20 @@ import styles from './parameters.module.scss';
 
 function Parameters(): JSX.Element {
   const countLevel = useAppSelector((state) => state);
-  const {level, points, health, damage, defense, critDamage, critChance, dodge, doubleChance} = countLevel;
+  const {
+    level,
+    points,
+    strength,
+    stamina,
+    agility,
+    health,
+    damage,
+    defense,
+    critDamage,
+    critChance,
+    dodge,
+    doubleChance
+  } = countLevel;
 
   const dispatch = useAppDispatch();
 
@@ -62,11 +84,13 @@ function Parameters(): JSX.Element {
               <ArrowBackIosOutlinedIcon
                 className={styles['parameters__arrow']}
                 color="primary"
+                onClick={() => dispatch(decrementStrength())}
               />
-              <div className={styles['parameters__cell']}>29</div>
+              <div className={styles['parameters__cell']}>{strength}</div>
               <ArrowForwardIosOutlinedIcon
                 className={styles['parameters__arrow']}
                 color="primary"
+                onClick={() => dispatch(incrementStrength())}
               />
             </div>
           </li>
@@ -79,11 +103,13 @@ function Parameters(): JSX.Element {
               <ArrowBackIosOutlinedIcon
                 className={styles['parameters__arrow']}
                 color="primary"
+                onClick={() => dispatch(decrementStamina())}
               />
-              <div className={styles['parameters__cell']}>30</div>
+              <div className={styles['parameters__cell']}>{stamina}</div>
               <ArrowForwardIosOutlinedIcon
                 className={styles['parameters__arrow']}
                 color="primary"
+                onClick={() => dispatch(incrementStamina())}
               />
             </div>
           </li>
@@ -96,11 +122,13 @@ function Parameters(): JSX.Element {
               <ArrowBackIosOutlinedIcon
                 className={styles['parameters__arrow']}
                 color="primary"
+                onClick={() => dispatch(decrementAgility())}
               />
-              <div className={styles['parameters__cell']}>10</div>
+              <div className={styles['parameters__cell']}>{agility}</div>
               <ArrowForwardIosOutlinedIcon
                 className={styles['parameters__arrow']}
                 color="primary"
+                onClick={() => dispatch(incrementAgility())}
               />
             </div>
           </li>

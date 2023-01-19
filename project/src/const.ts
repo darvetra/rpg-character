@@ -1,26 +1,23 @@
-const lang = ['English', 'Russian'];
+export const lang = ['English', 'Russian'];
 
-const FIRST_LEVEL = 1;
-const LEVEL_COUNT = 1;
-const POINTS_PER_LEVEL = 1;
-const HEALTH_PER_LEVEL = 100;
-const DAMAGE_PER_LEVEL = 7;
-const DEFENSE_PER_LEVEL = 0.5;
-const CRIT_DAMAGE_PER_LEVEL = 9;
-const CRIT_CHANCE_PER_LEVEL = 0.3;
-const DODGE_PER_LEVEL = 0.4;
-const DOUBLE_DEFENSE_PER_LEVEL = 0.7;
+export const FIRST_LEVEL = 1;
+export const LEVEL_COUNT = 1;
+export const POINT_COUNT = 1;
+export const POINTS_PER_LEVEL = 1;
+export const HEALTH_PER_LEVEL = 100;
+export const DAMAGE_PER_LEVEL = 7;
+export const DEFENSE_PER_LEVEL = 0.5;
+export const CRIT_DAMAGE_PER_LEVEL = 9;
+export const CRIT_CHANCE_PER_LEVEL = 0.3;
+export const DODGE_PER_LEVEL = 0.4;
+export const DOUBLE_STRIKE_CHANCE_PER_LEVEL = 0.7;
 
-export {
-  lang,
-  FIRST_LEVEL,
-  LEVEL_COUNT,
-  POINTS_PER_LEVEL,
-  HEALTH_PER_LEVEL,
-  DAMAGE_PER_LEVEL,
-  DEFENSE_PER_LEVEL,
-  CRIT_DAMAGE_PER_LEVEL,
-  CRIT_CHANCE_PER_LEVEL,
-  DODGE_PER_LEVEL,
-  DOUBLE_DEFENSE_PER_LEVEL
-};
+export const HEALTH_PER_STRENGTH = 50;
+export const CRIT_DAMAGE_PER_STRENGTH = 5;
+export const CRIT_CHANCE_PER_STRENGTH = 0.4;
+
+export const DAMAGE_PER_STAMINA = 5;
+export const DEFENSE_PER_STAMINA = 0.6;
+
+export const DOUBLE_STRIKE_CHANCE_PER_AGILITY = 0.6;
+export const DODGE_PER_AGILITY = 0.5;
