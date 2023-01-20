@@ -114,9 +114,19 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(resetLevel, (state) => {
       state.level = FIRST_LEVEL;
+      // exp: 0,
+      // expToNextLvl: 100 (10/5),
+      state.points = 10;
       state.strength = 0;
       state.stamina = 0;
       state.agility = 0;
+      state.health = 300;
+      state.damage = 75;
+      state.defense = 3;
+      state.critDamage = 161;
+      state.critChance = 7;
+      state.dodge = 1.5;
+      state.doubleChance = 0.5;
     });
 });
 
