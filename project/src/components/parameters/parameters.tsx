@@ -10,6 +10,7 @@ import {
   decrementAgility,
   resetLevel
 } from '../../store/action';
+import {FIRST_LEVEL, LAST_LEVEL} from '../../const';
 
 import {Button} from '@mui/material';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
@@ -51,17 +52,25 @@ function Parameters(): JSX.Element {
           <div className={styles['parameters__description']}>Уровень персонажа:</div>
 
           <ArrowBackIosOutlinedIcon
-            className={styles['parameters__arrow']}
-            color="primary"
-            onClick={() => dispatch(decrementLevel())}
+            className={level === FIRST_LEVEL ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+            color={level === FIRST_LEVEL ? 'disabled' : 'primary'}
+            onClick={() => {
+              if (level > FIRST_LEVEL) {
+                dispatch(decrementLevel());
+              }
+            }}
           />
 
           <div className={styles['parameters__cell']}>{level}</div>
 
           <ArrowForwardIosOutlinedIcon
-            className={styles['parameters__arrow']}
-            color="primary"
-            onClick={() => dispatch(incrementLevel())}
+            className={level === LAST_LEVEL ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+            color={level === LAST_LEVEL ? 'disabled' : 'primary'}
+            onClick={() => {
+              if (level < LAST_LEVEL) {
+                dispatch(incrementLevel());
+              }
+            }}
           />
 
         </div>

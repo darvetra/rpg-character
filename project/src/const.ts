@@ -1,6 +1,7 @@
 export const lang = ['English', 'Russian'];
 
 export const FIRST_LEVEL = 1;
+export const LAST_LEVEL = 19;
 export const LEVEL_COUNT = 1;
 export const POINT_COUNT = 1;
 export const POINTS_PER_LEVEL = 1;

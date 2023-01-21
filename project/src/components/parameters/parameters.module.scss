@@ -102,9 +102,19 @@
 .parameters__arrow {
   transition: .5s ease-in-out;
 
-  &:hover,
-  &:focus {
-    opacity: 0.8;
+  &--disabled {
+    &:hover,
+    &:focus {
+      cursor: default;
+    }
+  }
+
+  &--active {
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
   }
 }
