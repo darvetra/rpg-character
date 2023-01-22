@@ -2,8 +2,8 @@ export const lang = ['English', 'Russian'];
 
 export const FIRST_LEVEL = 1;
 export const LAST_LEVEL = 19;
-export const LEVEL_COUNT = 1;
-export const POINT_COUNT = 1;
+export const STEP_COUNT = 1;
+export const MINIMUM_POINTS = 0;
 export const POINTS_PER_LEVEL = 1;
 export const HEALTH_PER_LEVEL = 100;
 export const DAMAGE_PER_LEVEL = 7;

@@ -97,16 +97,14 @@
   height: 38px;
   width: 70px;
   border-radius: 4px;
+  cursor: default;
 }
 
 .parameters__arrow {
   transition: .5s ease-in-out;
 
   &--disabled {
-    &:hover,
-    &:focus {
-      cursor: default;
-    }
+    cursor: default;
   }
 
   &--active {

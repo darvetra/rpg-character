@@ -10,7 +10,7 @@ import {
   decrementAgility,
   resetLevel
 } from '../../store/action';
-import {FIRST_LEVEL, LAST_LEVEL} from '../../const';
+import {FIRST_LEVEL, LAST_LEVEL, MINIMUM_POINTS} from '../../const';
 
 import {Button} from '@mui/material';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
@@ -92,9 +92,13 @@ function Parameters(): JSX.Element {
             </div>
             <div className={styles['parameters__changeable-value']}>
               <ArrowBackIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-                onClick={() => dispatch(decrementStrength())}
+                className={strength === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={strength === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                onClick={() => {
+                  if (strength > MINIMUM_POINTS) {
+                    dispatch(decrementStrength());
+                  }
+                }}
               />
               <div className={styles['parameters__cell']}>{strength}</div>
               <ArrowForwardIosOutlinedIcon
@@ -111,9 +115,13 @@ function Parameters(): JSX.Element {
             </div>
             <div className={styles['parameters__changeable-value']}>
               <ArrowBackIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-                onClick={() => dispatch(decrementStamina())}
+                className={stamina === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={stamina === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                onClick={() => {
+                  if (stamina > MINIMUM_POINTS) {
+                    dispatch(decrementStamina());
+                  }
+                }}
               />
               <div className={styles['parameters__cell']}>{stamina}</div>
               <ArrowForwardIosOutlinedIcon
@@ -130,9 +138,13 @@ function Parameters(): JSX.Element {
             </div>
             <div className={styles['parameters__changeable-value']}>
               <ArrowBackIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-                onClick={() => dispatch(decrementAgility())}
+                className={agility === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={agility === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                onClick={() => {
+                  if (agility > MINIMUM_POINTS) {
+                    dispatch(decrementAgility());
+                  }
+                }}
               />
               <div className={styles['parameters__cell']}>{agility}</div>
               <ArrowForwardIosOutlinedIcon

@@ -13,8 +13,7 @@ import {
 import {roundTwoDecimalPlaces} from '../utils';
 import {
   FIRST_LEVEL,
-  LEVEL_COUNT,
-  POINT_COUNT,
+  STEP_COUNT,
   POINTS_PER_LEVEL,
   HEALTH_PER_LEVEL,
   DAMAGE_PER_LEVEL,
@@ -53,7 +52,7 @@ const initialState = {
 const reducer = createReducer(initialState, (builder) => {
   builder
     .addCase(incrementLevel, (state) => {
-      state.level = state.level + LEVEL_COUNT;
+      state.level = state.level + STEP_COUNT;
       state.points = state.points + POINTS_PER_LEVEL;
       state.health = Math.round(state.health + HEALTH_PER_LEVEL);
       state.damage = Math.round(state.damage + DAMAGE_PER_LEVEL);
@@ -64,7 +63,7 @@ const reducer = createReducer(initialState, (builder) => {
       state.doubleChance = roundTwoDecimalPlaces(state.doubleChance + DOUBLE_STRIKE_CHANCE_PER_LEVEL);
     })
     .addCase(decrementLevel, (state) => {
-      state.level = state.level - LEVEL_COUNT;
+      state.level = state.level - STEP_COUNT;
       state.points = state.points - POINTS_PER_LEVEL;
       state.health = Math.round(state.health - HEALTH_PER_LEVEL);
       state.damage = Math.round(state.damage - DAMAGE_PER_LEVEL);
@@ -75,40 +74,40 @@ const reducer = createReducer(initialState, (builder) => {
       state.doubleChance = roundTwoDecimalPlaces(state.doubleChance - DOUBLE_STRIKE_CHANCE_PER_LEVEL);
     })
     .addCase(incrementStrength, (state) => {
-      state.strength = state.strength + POINT_COUNT;
-      state.points = state.points - POINT_COUNT;
+      state.strength = state.strength + STEP_COUNT;
+      state.points = state.points - STEP_COUNT;
       state.health = Math.round(state.health + HEALTH_PER_STRENGTH);
       state.critDamage = state.critDamage + CRIT_DAMAGE_PER_STRENGTH;
       state.critChance = roundTwoDecimalPlaces(state.critChance + CRIT_CHANCE_PER_STRENGTH);
     })
     .addCase(decrementStrength, (state) => {
-      state.strength = state.strength - POINT_COUNT;
-      state.points = state.points + POINT_COUNT;
+      state.strength = state.strength - STEP_COUNT;
+      state.points = state.points + STEP_COUNT;
       state.health = Math.round(state.health - HEALTH_PER_STRENGTH);
       state.critDamage = state.critDamage - CRIT_DAMAGE_PER_STRENGTH;
       state.critChance = roundTwoDecimalPlaces(state.critChance - CRIT_CHANCE_PER_STRENGTH);
     })
     .addCase(incrementStamina, (state) => {
-      state.stamina = state.stamina + POINT_COUNT;
-      state.points = state.points - POINT_COUNT;
+      state.stamina = state.stamina + STEP_COUNT;
+      state.points = state.points - STEP_COUNT;
       state.damage = Math.round(state.damage + DAMAGE_PER_STAMINA);
       state.defense = roundTwoDecimalPlaces(state.defense + DEFENSE_PER_STAMINA);
     })
     .addCase(decrementStamina, (state) => {
-      state.stamina = state.stamina - POINT_COUNT;
-      state.points = state.points + POINT_COUNT;
+      state.stamina = state.stamina - STEP_COUNT;
+      state.points = state.points + STEP_COUNT;
       state.damage = Math.round(state.damage - DAMAGE_PER_STAMINA);
       state.defense = roundTwoDecimalPlaces(state.defense - DEFENSE_PER_STAMINA);
     })
     .addCase(incrementAgility, (state) => {
-      state.agility = state.agility + POINT_COUNT;
-      state.points = state.points - POINT_COUNT;
+      state.agility = state.agility + STEP_COUNT;
+      state.points = state.points - STEP_COUNT;
       state.dodge = roundTwoDecimalPlaces(state.dodge + DODGE_PER_AGILITY);
       state.doubleChance = roundTwoDecimalPlaces(state.doubleChance + DOUBLE_STRIKE_CHANCE_PER_AGILITY);
     })
     .addCase(decrementAgility, (state) => {
-      state.agility = state.agility - POINT_COUNT;
-      state.points = state.points + POINT_COUNT;
+      state.agility = state.agility - STEP_COUNT;
+      state.points = state.points + STEP_COUNT;
       state.dodge = roundTwoDecimalPlaces(state.dodge - DODGE_PER_AGILITY);
       state.doubleChance = roundTwoDecimalPlaces(state.doubleChance - DOUBLE_STRIKE_CHANCE_PER_AGILITY);
     })
