@@ -102,9 +102,13 @@ function Parameters(): JSX.Element {
               />
               <div className={styles['parameters__cell']}>{strength}</div>
               <ArrowForwardIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-                onClick={() => dispatch(incrementStrength())}
+                className={points === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                onClick={() => {
+                  if (MINIMUM_POINTS < points) {
+                    dispatch(incrementStrength());
+                  }
+                }}
               />
             </div>
           </li>
@@ -125,9 +129,13 @@ function Parameters(): JSX.Element {
               />
               <div className={styles['parameters__cell']}>{stamina}</div>
               <ArrowForwardIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-                onClick={() => dispatch(incrementStamina())}
+                className={points === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                onClick={() => {
+                  if (MINIMUM_POINTS < points) {
+                    dispatch(incrementStamina());
+                  }
+                }}
               />
             </div>
           </li>
@@ -148,9 +156,13 @@ function Parameters(): JSX.Element {
               />
               <div className={styles['parameters__cell']}>{agility}</div>
               <ArrowForwardIosOutlinedIcon
-                className={styles['parameters__arrow']}
-                color="primary"
-                onClick={() => dispatch(incrementAgility())}
+                className={points === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                onClick={() => {
+                  if (MINIMUM_POINTS < points) {
+                    dispatch(incrementAgility());
+                  }
+                }}
               />
             </div>
           </li>
