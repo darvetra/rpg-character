@@ -58,6 +58,9 @@ function Parameters(): JSX.Element {
               if (level > FIRST_LEVEL) {
                 dispatch(decrementLevel());
               }
+              if (strength + stamina + agility > 0) {
+                dispatch(resetLevel());
+              }
             }}
           />
 
