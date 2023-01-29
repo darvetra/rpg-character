@@ -27,7 +27,8 @@
   justify-content: space-between;
   align-items: center;
 
-  &:first-child {
+  &:first-child,
+  &:nth-child(5) {
     margin-top: 15px;
     padding-top: 20px;
     border-top: 1px dashed index.$white50;
@@ -52,6 +53,7 @@
 .parameters__points {
   font-size: 1rem;
   vertical-align: middle;
+  min-width: 260px;
 }
 
 .parameters__headline {
@@ -95,14 +97,22 @@
   height: 38px;
   width: 70px;
   border-radius: 4px;
+  cursor: default;
 }
 
 .parameters__arrow {
   transition: .5s ease-in-out;
 
-  &:hover,
-  &:focus {
-    opacity: 0.8;
+  &--disabled {
+    cursor: default;
+  }
+
+  &--active {
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
   }
 }
