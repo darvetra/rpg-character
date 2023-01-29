@@ -45,13 +45,13 @@ function Inventory(): JSX.Element {
                       type="image/webp"
                       width="86"
                       height="86"
-                      srcSet="/img/axe.webp"
+                      srcSet={require('../../img/axe.webp')}
                     />
                     <img
                       alt="img"
                       width="86"
                       height="86"
-                      src="/img/axe.png"
+                      srcSet={require('../../img/axe.png')}
                     />
                   </picture>
                 </li>
@@ -61,13 +61,13 @@ function Inventory(): JSX.Element {
                       type="image/webp"
                       width="86"
                       height="86"
-                      srcSet="/img/helm.webp"
+                      srcSet={require('../../img/helm.webp')}
                     />
                     <img
                       alt="img"
                       width="86"
                       height="86"
-                      src="/img/helm.png"
+                      srcSet={require('../../img/helm.png')}
                     />
                   </picture>
                 </li>
@@ -134,13 +134,13 @@ function Inventory(): JSX.Element {
                       type="image/webp"
                       width="86"
                       height="86"
-                      srcSet="/img/phial-1.webp"
+                      srcSet={require('../../img/phial-1.webp')}
                     />
                     <img
                       alt="img"
                       width="86"
                       height="86"
-                      src="/img/phial-1.png"
+                      srcSet={require('../../img/phial-1.png')}
                     />
                   </picture>
                 </li>
@@ -150,13 +150,13 @@ function Inventory(): JSX.Element {
                       type="image/webp"
                       width="86"
                       height="86"
-                      srcSet="/img/phial-2.webp"
+                      srcSet={require('../../img/phial-2.webp')}
                     />
                     <img
                       alt="img"
                       width="86"
                       height="86"
-                      src="/img/phial-2.png"
+                      srcSet={require('../../img/phial-2.png')}
                     />
                   </picture>
                 </li>
