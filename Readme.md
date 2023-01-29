@@ -1,3 +1,21 @@
+# Rotgar.Guide
+---
+
+Пет-проект. Реализация карточки персонажа и инвентаря Rotgar.game.
+
+---
+
+## Используемые технологии:
+* React
+* TypeScript
+* Create React App (CRA)
+* SASS/SCSS
+* Material UI
+## Особенности:
+* Адаптивная верстка по БЭМ (в процессе)
+
+---
+
 # Руководство по работе с проектом
 
 Данный проект создан с помощью [Create React App](https://github.com/facebook/create-react-app).

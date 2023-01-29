@@ -1,8 +1,8 @@
 {
-  "name": "project",
+  "name": "rotgarguide",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://darvetra.github.io/rpg-character/",
+  "homepage": "https://rotgar.guide/",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
