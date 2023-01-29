@@ -180,7 +180,7 @@ function Parameters(): JSX.Element {
           </li>
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Защита:</div>
-            <div className={styles['parameters__unchangeable-value']}>{defense}</div>
+            <div className={styles['parameters__unchangeable-value']}>{defense} %</div>
           </li>
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Критический урон:</div>

@@ -8,13 +8,13 @@ export const POINTS_PER_LEVEL = 1;
 export const HEALTH_PER_LEVEL = 100;
 export const DAMAGE_PER_LEVEL = 7;
 export const DEFENSE_PER_LEVEL = 0.5;
-export const CRIT_DAMAGE_PER_LEVEL = 9;
+export const CRIT_DAMAGE_PERCENT_PER_LEVEL = 4;
 export const CRIT_CHANCE_PER_LEVEL = 0.3;
 export const DODGE_PER_LEVEL = 0.4;
 export const DOUBLE_STRIKE_CHANCE_PER_LEVEL = 0.7;
 
 export const HEALTH_PER_STRENGTH = 50;
-export const CRIT_DAMAGE_PER_STRENGTH = 5;
+export const CRIT_DAMAGE_PERCENT_PER_STRENGTH = 5;
 export const CRIT_CHANCE_PER_STRENGTH = 0.4;
 
 export const DAMAGE_PER_STAMINA = 5;
