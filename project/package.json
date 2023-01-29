@@ -2,6 +2,7 @@
   "name": "project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://darvetra.github.io/rpg-character/",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -10,6 +11,7 @@
     "@mui/material": "^5.10.4",
     "@reduxjs/toolkit": "^1.5.0",
     "axios": "^0.21.1",
+    "gh-pages": "^5.0.0",
     "history": "^5.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,7 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .tsx --ext .ts src/"
+    "lint": "eslint --ext .tsx --ext .ts src/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
