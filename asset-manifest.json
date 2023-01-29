@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rpg-character/static/css/main.6281c820.css",
-    "main.js": "/rpg-character/static/js/main.a424fe0a.js",
+    "main.css": "/rpg-character/static/css/main.280bfdec.css",
+    "main.js": "/rpg-character/static/js/main.fa48b367.js",
     "static/media/footer.png": "/rpg-character/static/media/footer.9956c881180c72075187.png",
     "static/media/footer-mobile.png": "/rpg-character/static/media/footer-mobile.783b3e846b04d047ce33.png",
     "static/media/logo.png": "/rpg-character/static/media/logo.9dd7bfd77dc69b4f540e.png",
@@ -10,11 +10,11 @@
     "static/media/footer-mobile.webp": "/rpg-character/static/media/footer-mobile.c9210a63c940f80f5b24.webp",
     "static/media/logo.webp": "/rpg-character/static/media/logo.2f427ea481ac665e1fdc.webp",
     "index.html": "/rpg-character/index.html",
-    "main.6281c820.css.map": "/rpg-character/static/css/main.6281c820.css.map",
-    "main.a424fe0a.js.map": "/rpg-character/static/js/main.a424fe0a.js.map"
+    "main.280bfdec.css.map": "/rpg-character/static/css/main.280bfdec.css.map",
+    "main.fa48b367.js.map": "/rpg-character/static/js/main.fa48b367.js.map"
   },
   "entrypoints": [
-    "static/css/main.6281c820.css",
-    "static/js/main.a424fe0a.js"
+    "static/css/main.280bfdec.css",
+    "static/js/main.fa48b367.js"
   ]
 }
