@@ -5,6 +5,40 @@
 const roundTwoDecimalPlaces = (expression: number) => Number((expression).toFixed(2));
 
 /**
+ * Расчитывает шанс двойного удара при увеличении уровня
+ * @param currentLevel
+ * @param stateDoubleChance
+ * @param doubleChancePerLevel
+ */
+const calcDoubleChanceIncLevel = (currentLevel: number, stateDoubleChance: number, doubleChancePerLevel: number) => {
+  switch (currentLevel) {
+    case 5:
+      return stateDoubleChance + doubleChancePerLevel + 0.1;
+    case 12:
+      return stateDoubleChance + doubleChancePerLevel - 1;
+    default:
+      return stateDoubleChance + doubleChancePerLevel;
+  }
+};
+
+/**
+ * Расчитывает шанс двойного удара при уменьшении уровня
+ * @param currentLevel
+ * @param stateDoubleChance
+ * @param doubleChancePerLevel
+ */
+const calcDoubleChanceDecLevel = (currentLevel: number, stateDoubleChance: number, doubleChancePerLevel: number) => {
+  switch (currentLevel) {
+    case 11:
+      return stateDoubleChance - doubleChancePerLevel + 1;
+    case 4:
+      return stateDoubleChance - doubleChancePerLevel - 0.1;
+    default:
+      return stateDoubleChance - doubleChancePerLevel;
+  }
+};
+
+/**
  * Расчитывает шанс уворота при увеличении уровня
  * @param currentLevel
  * @param stateDodge
@@ -12,12 +46,6 @@ const roundTwoDecimalPlaces = (expression: number) => Number((expression).toFixe
  */
 const calcDodgeIncLevel = (currentLevel: number, stateDodge: number, dodgePerLevel: number) => {
   switch (currentLevel) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      return stateDodge + dodgePerLevel;
     case 6:
     case 7:
       return stateDodge + dodgePerLevel - 0.1;
@@ -34,21 +62,6 @@ const calcDodgeIncLevel = (currentLevel: number, stateDodge: number, dodgePerLev
  */
 const calcDodgeDecLevel = (currentLevel: number, stateDodge: number, dodgePerLevel: number) => {
   switch (currentLevel) {
-    case 20:
-    case 19:
-    case 18:
-    case 17:
-    case 16:
-    case 15:
-    case 14:
-    case 13:
-    case 12:
-    case 11:
-    case 10:
-    case 9:
-    case 8:
-    case 7:
-      return stateDodge - dodgePerLevel;
     case 6:
     case 5:
       return stateDodge - dodgePerLevel + 0.1;
@@ -58,6 +71,8 @@ const calcDodgeDecLevel = (currentLevel: number, stateDodge: number, dodgePerLev
 };
 
 export {
+  calcDoubleChanceIncLevel,
+  calcDoubleChanceDecLevel,
   roundTwoDecimalPlaces,
   calcDodgeIncLevel,
   calcDodgeDecLevel
