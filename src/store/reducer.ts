@@ -10,7 +10,15 @@ import {
   decrementAgility,
   resetLevel
 } from './action';
-import {roundTwoDecimalPlaces} from '../utils';
+
+import {
+  calcDoubleChanceIncLevel,
+  calcDoubleChanceDecLevel,
+  calcDodgeDecLevel,
+  calcDodgeIncLevel,
+  roundTwoDecimalPlaces
+} from '../utils';
+
 import {
   FIRST_LEVEL,
   STEP_COUNT,
@@ -59,8 +67,8 @@ const reducer = createReducer(initialState, (builder) => {
       state.defense = roundTwoDecimalPlaces(state.defense + DEFENSE_PER_LEVEL);
       state.critDamagePercent = state.critDamagePercent + CRIT_DAMAGE_PERCENT_PER_LEVEL;
       state.critChance = roundTwoDecimalPlaces(state.critChance + CRIT_CHANCE_PER_LEVEL);
-      state.dodge = roundTwoDecimalPlaces(state.dodge + DODGE_PER_LEVEL);
-      state.doubleChance = roundTwoDecimalPlaces(state.doubleChance + DOUBLE_STRIKE_CHANCE_PER_LEVEL);
+      state.dodge = roundTwoDecimalPlaces(calcDodgeIncLevel(state.level, state.dodge, DODGE_PER_LEVEL));
+      state.doubleChance = roundTwoDecimalPlaces(calcDoubleChanceIncLevel(state.level, state.doubleChance, DOUBLE_STRIKE_CHANCE_PER_LEVEL));
       state.critDamage = Math.round(state.damage / 100 * (state.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * state.strength)));
     })
     .addCase(decrementLevel, (state) => {
@@ -71,8 +79,8 @@ const reducer = createReducer(initialState, (builder) => {
       state.defense = roundTwoDecimalPlaces(state.defense - DEFENSE_PER_LEVEL);
       state.critDamagePercent = state.critDamagePercent - CRIT_DAMAGE_PERCENT_PER_LEVEL;
       state.critChance = roundTwoDecimalPlaces(state.critChance - CRIT_CHANCE_PER_LEVEL);
-      state.dodge = roundTwoDecimalPlaces(state.dodge - DODGE_PER_LEVEL);
-      state.doubleChance = roundTwoDecimalPlaces(state.doubleChance - DOUBLE_STRIKE_CHANCE_PER_LEVEL);
+      state.dodge = roundTwoDecimalPlaces(calcDodgeDecLevel(state.level, state.dodge, DODGE_PER_LEVEL));
+      state.doubleChance = roundTwoDecimalPlaces(calcDoubleChanceDecLevel(state.level, state.doubleChance, DOUBLE_STRIKE_CHANCE_PER_LEVEL));
       state.critDamage = Math.round(state.damage / 100 * (state.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * state.strength)));
     })
     .addCase(incrementStrength, (state) => {

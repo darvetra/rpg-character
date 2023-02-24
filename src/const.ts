@@ -1,7 +1,7 @@
 export const lang = ['English', 'Russian'];
 
 export const FIRST_LEVEL = 1;
-export const LAST_LEVEL = 19;
+export const LAST_LEVEL = 20;
 export const STEP_COUNT = 1;
 export const MINIMUM_POINTS = 0;
 export const POINTS_PER_LEVEL = 1;
