@@ -1,5 +1,10 @@
 export const lang = ['English', 'Russian'];
 
+export enum AppRoute {
+  Main = '/',
+  Battle = '/battle',
+}
+
 export const FIRST_LEVEL = 1;
 export const LAST_LEVEL = 20;
 export const STEP_COUNT = 1;
