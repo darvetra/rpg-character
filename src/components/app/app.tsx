@@ -21,15 +21,11 @@ function App(): JSX.Element {
         <Routes>
           <Route
             path={AppRoute.Main}
-            element={
-              <MainScreen />
-            }
+            element={<MainScreen />}
           />
           <Route
             path={AppRoute.Battle}
-            element={
-              <BattleScreen />
-            }
+            element={<BattleScreen />}
           />
         </Routes>
       </HistoryRouter>
