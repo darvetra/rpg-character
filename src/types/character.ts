@@ -1,0 +1,20 @@
+
+export type CharacterType = {
+  id: number,
+  playerName: string,
+  level: number,
+  // exp: 0,
+  // expToNextLvl: 100 (10/5),
+  points: number,
+  strength: number,
+  stamina: number,
+  agility: number,
+  health: number,
+  damage: number,
+  defense: number,
+  critDamagePercent: number,
+  critDamage: number,
+  critChance: number,
+  dodge: number,
+  doubleChance: number,
+}
