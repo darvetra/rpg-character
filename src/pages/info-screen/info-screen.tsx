@@ -1,5 +1,5 @@
 import Header from '../../components/header/header';
-import Footer from '../../components/footer/footer';
+// import Footer from '../../components/footer/footer';
 
 // import Character from '../../components/character/character';
 // import Inventory from '../../components/inventory/inventory';
@@ -14,7 +14,7 @@ function InfoScreen(): JSX.Element {
     <div>
       <Header />
 
-      <main className={styles['main-page']}>
+      <main className={styles['info-page']}>
         <h1 className="visually-hidden">Rotgar.Guide</h1>
 
 
@@ -28,37 +28,8 @@ function InfoScreen(): JSX.Element {
               {/*<Equipment />*/}
               <section className={styles['character__item']}>
                 <section className={styles['equipment']}>
-                  <h2 className={styles['equipment__title']}>Экипировка персонажа</h2>
 
                   <div className={styles['equipment__container']}>
-                    <ul className={styles['equipment__column']}>
-                      <li className={styles['equipment__slot']}>
-                      </li>
-                      <li className={styles['equipment__slot']}>
-                      </li>
-                      <li className={styles['equipment__slot']}>
-                      </li>
-                      <li className={styles['equipment__slot']}>
-                        <picture>
-                          <source
-                            type="image/webp"
-                            width="86"
-                            height="86"
-                            srcSet={require('../../img/sword.webp')}
-                          />
-                          <img
-                            alt="img"
-                            width="86"
-                            height="86"
-                            src={require('../../img/sword.png')}
-                          />
-                        </picture>
-                      </li>
-                      <li className={styles['equipment__slot']}>
-                      </li>
-                      <li className={styles['equipment__slot']}>
-                      </li>
-                    </ul>
 
                     <ul className={styles['equipment__column']}>
                       <li className={styles['equipment__slot']}>
@@ -88,6 +59,65 @@ function InfoScreen(): JSX.Element {
                       <li className={styles['equipment__slot']}>
                       </li>
                     </ul>
+
+                    <div className={styles['character__puppet--wrapper']}>
+                      <div className={styles['character__puppet']}>
+                      </div>
+                    </div>
+
+                    <ul className={styles['equipment__column']}>
+                      <li className={styles['equipment__slot']}>
+                      </li>
+                      <li className={styles['equipment__slot']}>
+                        <img
+                          alt="img"
+                          width="64"
+                          height="64"
+                          src={require('../../img/64_work_wear_shirt.png')}
+                        />
+                      </li>
+                      <li className={styles['equipment__slot']}>
+                        <img
+                          alt="img"
+                          width="64"
+                          height="64"
+                          src={require('../../img/64_work_wear_gloves.png')}
+                        />
+                      </li>
+                      <li className={styles['equipment__slot']}>
+                        <picture>
+                          <source
+                            type="image/webp"
+                            width="86"
+                            height="86"
+                            srcSet={require('../../img/sword.webp')}
+                          />
+                          <img
+                            alt="img"
+                            width="86"
+                            height="86"
+                            src={require('../../img/sword.png')}
+                          />
+                        </picture>
+                      </li>
+                      <li className={styles['equipment__slot']}>
+                        <img
+                          alt="img"
+                          width="64"
+                          height="64"
+                          src={require('../../img/64_work_wear_pants.png')}
+                        />
+                      </li>
+                      <li className={styles['equipment__slot']}>
+                        <img
+                          alt="img"
+                          width="64"
+                          height="64"
+                          src={require('../../img/64_work_wear_shoes.png')}
+                        />
+                      </li>
+                    </ul>
+
                   </div>
                 </section>
 
@@ -102,7 +132,7 @@ function InfoScreen(): JSX.Element {
         {/*<Inventory />*/}
       </main>
 
-      <Footer />
+      {/*<Footer />*/}
     </div>
   );
 }
