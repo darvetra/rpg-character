@@ -3,8 +3,6 @@ export type CharacterType = {
   id: number,
   playerName: string,
   level: number,
-  // exp: 0,
-  // expToNextLvl: 100 (10/5),
   points: number,
   strength: number,
   stamina: number,
@@ -17,4 +15,4 @@ export type CharacterType = {
   critChance: number,
   dodge: number,
   doubleChance: number,
-}
+};

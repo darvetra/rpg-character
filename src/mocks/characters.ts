@@ -1,6 +1,24 @@
 import {CharacterType} from '../types/character';
 import {FIRST_LEVEL} from '../const';
 
+export const defaultCharacter : CharacterType = {
+  id: 0,
+  playerName: 'New Player',
+  level: FIRST_LEVEL,
+  points: 10,
+  strength: 0,
+  stamina: 0,
+  agility: 0,
+  health: 300,
+  damage: 75,
+  defense: 3,
+  critDamagePercent: 215,
+  critDamage: 161,
+  critChance: 7,
+  dodge: 1.5,
+  doubleChance: 0.5,
+};
+
 export const characters : CharacterType[] = [
   {
     id: 0,
