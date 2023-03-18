@@ -8,7 +8,8 @@ import {
   decrementStamina,
   incrementAgility,
   decrementAgility,
-  resetLevel
+  resetLevel,
+  // setCharacters
 } from './action';
 
 import {
@@ -17,7 +18,7 @@ import {
   calcDodgeDecLevel,
   calcDodgeIncLevel,
   roundTwoDecimalPlaces
-} from '../utils';
+} from '../utils/utils';
 
 import {
   FIRST_LEVEL,
@@ -38,6 +39,7 @@ import {
   DOUBLE_STRIKE_CHANCE_PER_AGILITY, CRIT_DAMAGE_PERCENT_PER_STRENGTH
 } from '../const';
 
+import {characters, defaultCharacter} from '../mocks/characters';
 
 const initialState = {
   level: FIRST_LEVEL,
@@ -55,10 +57,16 @@ const initialState = {
   critChance: 7,
   dodge: 1.5,
   doubleChance: 0.5,
+
+  characters: characters,
+  character: defaultCharacter,
 };
 
 const reducer = createReducer(initialState, (builder) => {
   builder
+    // .addCase(setCharacters, (state) => {
+    //   state.characters = state.characters;
+    // })
     .addCase(incrementLevel, (state) => {
       state.level = state.level + STEP_COUNT;
       state.points = state.points + POINTS_PER_LEVEL;
