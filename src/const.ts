@@ -2,6 +2,7 @@ export const lang = ['English', 'Russian'];
 
 export enum AppRoute {
   Main = '/',
+  Info = '/info',
   Battle = '/battle',
 }
 
