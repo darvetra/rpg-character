@@ -9,6 +9,7 @@
 
 //.puppet - привести в порядок названия потом
 
+//.info
 .character {
   padding: 0;
   display: flex;
@@ -22,7 +23,8 @@
 }
 
 .character__puppet {
-  //border: 1px solid red;
+
+  //border: 1px solid red;                  // --- --- --- РАМКА
 
   width: 309px;
   //height: 498px;
@@ -92,13 +94,22 @@
   .character__block {
     display: flex;
     flex-direction: row;
+    //border: 1px solid blue;                  // --- --- --- РАМКА
+    padding: 10px;
   }
 
   .character__item {
     min-width: 29vw;
     flex-grow: 1;
     margin-bottom: 20px;
-    //border: 1px solid orangered;
+    //border: 1px solid yellow;                  // --- --- --- РАМКА
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-start;
+    //justify-content: center; /*Центрирование по горизонтали*/
+    //align-items: center; /*Центрирование по вертикали */
   }
 
   .character__item:nth-child(2) {
@@ -125,7 +136,7 @@
   width: 460px;
   //height: 498px;
 
-  //border: 1px solid green;
+  //border: 1px solid green;                  // --- --- --- РАМКА
 
   //background: linear-gradient(180deg, #FF3E3E 0%, rgba(0, 29, 131, 0.4) 99.53%);
 
@@ -174,6 +185,30 @@
   border-radius: 13px;
 }
 
+// === === === === === === ATTRIBUTES === === === === === === //
 
+.info,
+.scills,
+.attributes {
+  min-width: 200px;
+  //border: 1px solid purple;                  // --- --- --- РАМКА
+  //margin: 10px;
+  padding-left: 16px;
+  padding-top: 16px;
+  margin-left: 15px;
+  margin-top: 10px;
 
+background-color: index.$item-slot;
+  border-radius: 11px;
 
+}
+
+.avatar {
+  width: 168px;
+  height: 168px;
+
+  background-image: url(/img/avatar/greg.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

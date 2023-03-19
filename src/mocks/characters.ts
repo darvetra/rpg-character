@@ -1,4 +1,4 @@
-import {CharacterType} from '../types/character';
+import {CharacterType, CharacterTypeServer} from '../types/character';
 import {FIRST_LEVEL} from '../const';
 
 export const defaultCharacter : CharacterType = {
@@ -18,6 +18,79 @@ export const defaultCharacter : CharacterType = {
   dodge: 1.5,
   doubleChance: 0.5,
 };
+
+export const CharacterServer : CharacterTypeServer = {
+  status: 'user_info',
+  userLevel: 20,
+  userXp: 27651,
+  userName: 'Greg 🎲',
+  language: 'ru',
+  userHp: 3650,
+  userDamage: 242,
+  nextLevelXp: 334046,
+  userTickets: 19,
+  hideId: '4s0ikmhn',
+  energy: 5,
+  resetPoints: 41,
+  points: 0,
+  maxPointsToChar: 10,
+  userCritChance: 24.3,
+  userCritPercent: 336,
+  userCritDamage: 1055,
+  userDoubleHitChance: 12.9,
+  userRating: 240,
+  isAnonim: false,
+  userEvasionChance: 8.9,
+  userStrength: 29,
+  userAgility: 0,
+  userIntellect: 0,
+  userStamina: 0,
+  levelStrength: 0,
+  levelAgility: 0,
+  levelWinExp: 50,
+  levelLooseExp: 25,
+  levelWinExpWot: 5,
+  levelLooseExpWot: 2,
+  levelPoints: 1,
+  levelIntellect: 0,
+  levelStamina: 0,
+  userDefence: 25.3,
+  searchValue: 2.13,
+  levelSearchPool: 6,
+  equip: {
+    head: '',
+    torso: 'ab000008_g65jtazm1lfq',
+    leftHand: '',
+    rightHand: '',
+    hands: 'ab000002_gh7cdb3fwut1',
+    legs: 'ab000010_srt3be2uvngh',
+    feet: 'ab000006_e9lh0jrpio8q',
+    throwingOption: 'ab000012_s1mxz4ktpv6j',
+    ring1: '',
+    ring2: '',
+    amulet: '',
+    cloak: '',
+    artefact: 'aa000034',
+    quickItem: ''
+  },
+  inv: {
+    0: [],
+    1: [''],
+    2: [],
+    3: [],
+    4: ['ab000001_ye97c1vqdlug'],
+    5: [''],
+    6: [''],
+    7: [''],
+    8: [],
+    9: [],
+    10: [],
+    11: [],
+    12: [],
+    13: ['aa000055']
+  }
+};
+
 
 export const characters : CharacterType[] = [
   {

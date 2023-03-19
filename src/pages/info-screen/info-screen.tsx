@@ -1,25 +1,106 @@
+import {useState} from 'react';
+import {useAppSelector} from '../../hooks';
+
 import Header from '../../components/header/header';
 // import Footer from '../../components/footer/footer';
 
-// import Character from '../../components/character/character';
-// import Inventory from '../../components/inventory/inventory';
-// import Parameters from "../../components/parameters/parameters";
-// import Equipment from "../../components/equipment/equipment";
-
 import styles from './info-screen.module.scss';
 
+
 function InfoScreen(): JSX.Element {
+  const characterServer = useAppSelector((state) => state.characterServer);
+  const [character, setCharacter] = useState(characterServer);
+
+  // eslint-disable-next-line no-console
+  console.log(setCharacter);
+
+  const {
+    // status,
+    // userLevel,
+    // userXp,
+    userName,
+    // language,
+    // userHp,
+    // userDamage,
+    // nextLevelXp,
+    // userTickets,
+    // hideId,
+    // energy,
+    // resetPoints,
+    // points,
+    // maxPointsToChar,
+    // userCritChance,
+    // userCritPercent,
+    // userCritDamage,
+    // userDoubleHitChance,
+    // userRating,
+    // isAnonim,
+    // userEvasionChance,
+    // userStrength,
+    // userAgility,
+    // userIntellect,
+    // userStamina,
+    // levelStrength,
+    // levelAgility,
+    // levelWinExp,
+    // levelLooseExp,
+    // levelWinExpWot,
+    // levelLooseExpWot,
+    // levelPoints,
+    // levelIntellect,
+    // levelStamina,
+    // userDefence,
+    // searchValue,
+    // levelSearchPool,
+    // equip: {
+    //   head,
+    //   torso,
+    //   leftHand,
+    //   rightHand,
+    //   hands,
+    //   legs,
+    //   feet,
+    //   throwingOption,
+    //   ring1,
+    //   ring2,
+    //   amulet,
+    //   cloak,
+    //   artefact,
+    //   quickItem
+    // },
+    // inv: {
+    //   0,
+    //   1,
+    //   2,
+    //   3,
+    //   4,
+    //   5,
+    //   6,
+    //   7,
+    //   8,
+    //   9,
+    //   10,
+    //   11,
+    //   12,
+    //   13,
+    // }
+  } = character;
+
+  // eslint-disable-next-line no-console
+  console.log(characterServer);
 
   return (
     <div>
       <Header />
 
       <main className={styles['info-page']}>
-        <h1 className="visually-hidden">Rotgar.Guide</h1>
+        <h1 className="visually-hidden">Rotgar Game. Информация о персонаже</h1>
 
 
         {/*<Character />*/}
+        {/*.info*/}
         <section className={styles['character']}>
+          {/*.info__container*/}
           <div className={styles['character__container']}>
             <div className={styles['character__block']}>
               {/*<Parameters />*/}
@@ -119,6 +200,34 @@ function InfoScreen(): JSX.Element {
                     </ul>
 
                   </div>
+                </section>
+
+                <section className={styles['info']}>
+
+                  <div className={styles['avatar']}>
+
+                  </div>
+
+                  <ul>
+                    <li>{userName}</li>
+                  </ul>
+
+                </section>
+
+                <section className={styles['attributes']}>
+
+                  <ul>
+                    <li>Характеристики</li>
+                  </ul>
+
+                </section>
+
+                <section className={styles['scills']}>
+
+                  <ul>
+                    <li>Навыки</li>
+                  </ul>
+
                 </section>
 
               </section>

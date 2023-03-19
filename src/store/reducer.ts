@@ -39,7 +39,7 @@ import {
   DOUBLE_STRIKE_CHANCE_PER_AGILITY, CRIT_DAMAGE_PERCENT_PER_STRENGTH
 } from '../const';
 
-import {characters, defaultCharacter} from '../mocks/characters';
+import {characters, CharacterServer, defaultCharacter} from '../mocks/characters';
 
 const initialState = {
   level: FIRST_LEVEL,
@@ -60,6 +60,7 @@ const initialState = {
 
   characters: characters,
   character: defaultCharacter,
+  characterServer: CharacterServer,
 };
 
 const reducer = createReducer(initialState, (builder) => {
