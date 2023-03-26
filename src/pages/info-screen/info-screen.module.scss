@@ -4,121 +4,31 @@
   background-color: index.$main-background;
 }
 
-
-// === === === === === === PUPPET === === === === === === //
-
-//.puppet - привести в порядок названия потом
-
-//.info
-.character {
+.info-page__wrapper {
   padding: 0;
   display: flex;
 }
 
-.character__container {
+.info-page__container {
   display: flex;
   margin: 0 auto;
   width: 100%;
   //padding: 0 index.$mobile-indent;
 }
 
-.character__puppet {
-
-  //border: 1px solid red;                  // --- --- --- РАМКА
-
-  width: 309px;
-  //height: 498px;
-  height: 434px;
-
-  background-image: url(/img/character-2.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-
-  //background: linear-gradient(180deg, #FF3E3E 0%, rgba(0, 29, 131, 0.4) 99.53%);
-  //filter: blur(70.5px);
-}
-
-.character__puppet--wrapper {
-  margin: 10px;
-  background: index.$puppet-background;
-  background: linear-gradient(180deg, #FF3E3E 0%, rgba(0, 29, 131, 0.4) 99.53%);
-  //filter: blur(70.5px); -----------------------------------------------------------------------> Нужен размытый фон <--------------------------------------------
-  width: 309px;
-  //height: 508px;
-  height: 434px;
-  border-radius: 16px;
-}
-
-
-
-
-.character__block {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.character__item {
-  //padding: 0 index.$mobile-indent;
+.info-page__block {
   padding: 0;
   position: relative;
   min-height: 600px;
 }
 
-@media (min-width: index.$tablet-width) {
 
-  .character__container {
-    padding: 0 index.$tablet-indent;
-  }
 
-  .character__item {
-    margin: 0;
-    margin-bottom: index.$tablet-indent;
-    min-height: 478px;
-  }
 
-}
 
-@media (min-width: index.$desktop-width) {
 
-  .character {
-    margin-top: 20px;
-  }
 
-  .character__container {
-    max-width: index.$content-width;
-    padding: 0;
-  }
-
-  .character__block {
-    display: flex;
-    flex-direction: row;
-    //border: 1px solid blue;                  // --- --- --- РАМКА
-    padding: 10px;
-  }
-
-  .character__item {
-    min-width: 29vw;
-    flex-grow: 1;
-    margin-bottom: 20px;
-    //border: 1px solid yellow;                  // --- --- --- РАМКА
-
-    display: flex;
-    flex-direction: row;
-
-    justify-content: flex-start;
-    //justify-content: center; /*Центрирование по горизонтали*/
-    //align-items: center; /*Центрирование по вертикали */
-  }
-
-  .character__item:nth-child(2) {
-    margin-left: 2vw;
-  }
-
-}
-
-// === === === === === === EQUIPMENT === === === === === === //
+// -------------------------------------------- > EQUIPMENT < -------------------------------------------- //
 
 
 .equipment {
@@ -152,6 +62,7 @@
   list-style: none;
   padding: 0;
   margin-top: 10px;
+  margin-bottom: 0;
 
   &:first-child {
     //padding-left: 20px;
@@ -185,10 +96,46 @@
   border-radius: 13px;
 }
 
-// === === === === === === ATTRIBUTES === === === === === === //
+// -------------------------------------------- > PUPPET < -------------------------------------------- //
+
+//.puppet - привести в порядок названия потом
+.character__puppet {
+
+  //border: 1px solid red;                  // --- --- --- РАМКА
+
+  width: 309px;
+  //height: 498px;
+  height: 434px;
+
+  background-image: url(/img/character-2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  //background: linear-gradient(180deg, #FF3E3E 0%, rgba(0, 29, 131, 0.4) 99.53%);
+  //filter: blur(70.5px);
+}
+
+.character__puppet--wrapper {
+  margin: 10px;
+  background: index.$puppet-background;
+  background: linear-gradient(180deg, #4c67ea 0%, rgba(0, 29, 131, 0.4) 99.53% );
+  //background: linear-gradient(180deg, #FF3E3E 0%, rgba(0, 29, 131, 0.4) 99.53%);
+  //--gradient: linear-gradient(180deg, #4c67ea 0%, rgba(0, 29, 131, 0.4) 99.53% );
+  //filter: blur(130px);
+  //filter: blur(70.5px);  -------------------------------------------- > Нужен размытый фон < --------------------------------------------
+  width: 309px;
+  //height: 508px;
+  height: 434px;
+  border-radius: 16px;
+}
+
+// -------------------------------------------- > INFO < -------------------------------------------- //
+
+// -------------------------------------------- > ATTRIBUTES < -------------------------------------------- //
+
 
 .info,
-.scills,
 .attributes {
   min-width: 200px;
   //border: 1px solid purple;                  // --- --- --- РАМКА
@@ -198,7 +145,7 @@
   margin-left: 15px;
   margin-top: 10px;
 
-background-color: index.$item-slot;
+  background-color: index.$item-slot;
   border-radius: 11px;
 
 }
@@ -211,4 +158,100 @@ background-color: index.$item-slot;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.info__character {
+  display: flex;
+  padding: 0;
+
+}
+
+.info__character li{
+  display: flex!important;
+  padding: 0;
+}
+
+.info__id {
+  //display: -webkit-box;
+  //display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+  margin-bottom: 4px;
+}
+.info__id span {
+  margin-left: 5px;
+  //display: -webkit-box;
+  //display: -ms-flexbox;
+  display: flex;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 4px 6px 2px;
+  //background: rgba(30, 174, 225, 0.1);
+  background-color: rgba(30, 174, 225, 1);
+  border-radius: 6px;
+  color: #1eaee1;
+}
+.info__id img {
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+  display: inline-block;
+  margin-left: 4px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+
+
+@media (min-width: index.$tablet-width) {
+
+  .info-page__container {
+    padding: 0 index.$tablet-indent;
+  }
+
+  .info-page__block{
+    margin: 0;
+    margin-bottom: index.$tablet-indent;
+    min-height: 478px;
+  }
+
+}
+
+@media (min-width: index.$desktop-width) {
+
+  .info-page {
+    margin-top: 20px;
+  }
+
+  .info-page__container {
+    max-width: index.$content-width;
+    padding: 0;
+  }
+
+  .info-page__block {
+    min-width: 29vw;
+    flex-grow: 1;
+    margin-bottom: 20px;
+    //border: 1px solid yellow;                  // --- --- --- РАМКА
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-start;
+    //justify-content: center; /*Центрирование по горизонтали*/
+    //align-items: center; /*Центрирование по вертикали */
+  }
+
+  .info-page__block:nth-child(2) {
+    margin-left: 2vw;
+  }
+
 }

@@ -1,12 +1,30 @@
 @import-normalize; /* bring in normalize.css styles */
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;700&display=swap');
 
-// Цвета
-$white: rgba(255, 255, 255, 100);
+
+// Цвета стандарт
+$white: rgba(255, 255, 255, 1);
 $white50: rgba(255, 255, 255, 0.5);
 $white10: rgba(255, 255, 255, 0.1);
 $black: rgba(0, 0, 0, 100);
 $translucent-black: rgba(0, 0, 0, 0.8);
 $dark-grey: rgba(28, 28, 28, 100);
+
+// Цвета ROTGAR.GAME
+$main-background: rgba(20, 19, 20, 100);
+
+// puppet
+$puppet-background: rgba(25, 24, 24, 1);
+
+// inv
+$item-slot: rgba(32, 30, 30, 100);
+$slot-shadow: rgba(94, 48, 194, 1);
+$id-font: rgba(30, 174, 225, 1);
+
+//items
+$epic: rgba(172, 87, 211, 1);
+
+
 
 // Отступы
 //$mobile-indent: 20px;
@@ -41,6 +59,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  padding: 0;
 }
 
 body {
@@ -48,11 +67,12 @@ body {
   padding: 0;
   min-width: 320px;
   background-color: $dark-grey;
-  font-family: "Arial", sans-serif;
+  //font-family: "Arial", sans-serif;
+  font-family: 'Golos Text', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: $white;
-  line-height: 1;
+  line-height: 20px;
   font-style: normal;
   font-stretch: normal;
   font-display: swap;
@@ -71,6 +91,28 @@ a {
 ul {
   list-style-type: none;
 }
+
+h2 {
+  color: $white;
+}
+
+p {
+  font-family: 'Golos Text', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $white;
+}
+
+//span {
+//  font-family: 'Golos Text', sans-serif;
+//  font-style: normal;
+//  font-weight: 700;
+//  font-size: 14px;
+//  line-height: 20px;
+//  color: $white;
+//}
 
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
@@ -98,15 +140,10 @@ ul {
 
 // === === === === === === ROTGAR.GAME === === === === === === //
 
-// Цвета ROTGAR.GAME
-//$white: rgba(255, 255, 255, 100);
-//$white50: rgba(255, 255, 255, 0.5);
-//$white10: rgba(255, 255, 255, 0.1);
-//$black: rgba(0, 0, 0, 100);
-//$translucent-black: rgba(0, 0, 0, 0.8);
-//$dark-grey: rgba(28, 28, 28, 100);
+// Шрифты
+body {
+  font-family: 'Golos Text', sans-serif;
+}
 
-$main-background: rgba(20, 19, 20, 100);
-$puppet-background: rgba(25, 24, 24, 1);
-$item-slot: rgba(32, 30, 30, 100);
-$slot-shadow: rgba(94, 48, 194, 1);
+
+

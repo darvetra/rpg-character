@@ -70,7 +70,7 @@ export const CharacterServer : CharacterTypeServer = {
     ring2: '',
     amulet: '',
     cloak: '',
-    artefact: 'aa000034',
+    artifact: 'aa000034',
     quickItem: ''
   },
   inv: {

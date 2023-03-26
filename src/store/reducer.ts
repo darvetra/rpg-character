@@ -40,6 +40,7 @@ import {
 } from '../const';
 
 import {characters, CharacterServer, defaultCharacter} from '../mocks/characters';
+import {equip, helm} from '../mocks/items';
 
 const initialState = {
   level: FIRST_LEVEL,
@@ -61,6 +62,8 @@ const initialState = {
   characters: characters,
   character: defaultCharacter,
   characterServer: CharacterServer,
+  equip: equip,
+  helm: helm,
 };
 
 const reducer = createReducer(initialState, (builder) => {

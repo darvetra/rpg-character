@@ -68,7 +68,7 @@ export type CharacterTypeServer = {
     ring2: string,
     amulet: string,
     cloak: string,
-    artefact: string,
+    artifact: string,
     quickItem: string
   },
   inv: {
