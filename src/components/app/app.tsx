@@ -6,6 +6,7 @@ import {AppRoute} from '../../const';
 import {createTheme, ThemeProvider} from '@mui/material';
 
 import MainScreen from '../../pages/main-screen/main-screen';
+import InfoScreen from '../../pages/info-screen/info-screen';
 import BattleScreen from '../../pages/battle-screen/battle-screen';
 
 const darkTheme = createTheme({
@@ -22,6 +23,10 @@ function App(): JSX.Element {
           <Route
             path={AppRoute.Main}
             element={<MainScreen />}
+          />
+          <Route
+            path={AppRoute.Info}
+            element={<InfoScreen />}
           />
           <Route
             path={AppRoute.Battle}

@@ -21,13 +21,13 @@ function Equipment(): JSX.Element {
                   type="image/webp"
                   width="86"
                   height="86"
-                  srcSet={require('../../img/sword.webp')}
+                  srcSet={require('../../img/inventory/sword.webp')}
                 />
                 <img
                   alt="img"
                   width="86"
                   height="86"
-                  src={require('../../img/sword.png')}
+                  src={require('../../img/inventory/sword.png')}
                 />
               </picture>
             </li>
@@ -50,13 +50,13 @@ function Equipment(): JSX.Element {
                   type="image/webp"
                   width="86"
                   height="86"
-                  srcSet={require('../../img/shield.webp')}
+                  srcSet={require('../../img/inventory/shield.webp')}
                 />
                 <img
                   alt="img"
                   width="86"
                   height="86"
-                  src={require('../../img/shield.png')}
+                  src={require('../../img/inventory/shield.png')}
                 />
               </picture>
             </li>

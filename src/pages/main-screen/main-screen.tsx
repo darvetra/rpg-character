@@ -1,3 +1,4 @@
+// import Stats from '../../components/stats/stats';
 import Header from '../../components/header/header';
 import Character from '../../components/character/character';
 import Inventory from '../../components/inventory/inventory';
@@ -13,7 +14,8 @@ function MainScreen(): JSX.Element {
       <Header />
 
       <main className={styles['main-page']}>
-        <h1 className="visually-hidden">Rotgar.Guide</h1>
+        {/*<h1 className="visually-hidden">Rotgar.Guide</h1>*/}
+        {/*<Stats />*/}
         <Character />
         <Inventory />
       </main>

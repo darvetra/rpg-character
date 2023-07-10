@@ -27,22 +27,22 @@ function Footer(): JSX.Element {
       <picture className={styles['footer__bg']} >
         <source
           type="image/webp"
-          srcSet={require('../../img/footer.webp')}
+          srcSet={require('../../img/archive/footer.webp')}
         />
         <img
           alt="img"
-          src={require('../../img/footer.png')}
+          src={require('../../img/archive/footer.png')}
         />
       </picture>
 
       <picture className={styles['footer__bg-mobile']} >
         <source
           type="image/webp"
-          srcSet={require('../../img/footer-mobile.webp')}
+          srcSet={require('../../img/archive/footer-mobile.webp')}
         />
         <img
           alt="img"
-          src={require('../../img/footer-mobile.png')}
+          src={require('../../img/archive/footer-mobile.png')}
         />
       </picture>
 

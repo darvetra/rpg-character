@@ -4,10 +4,12 @@ import {
   decrementLevel,
   incrementStrength,
   decrementStrength,
-  incrementStamina,
-  decrementStamina,
-  incrementAgility,
-  decrementAgility,
+  incrementDexterity,
+  decrementDexterity,
+  decrementIntuition,
+  incrementIntuition,
+  incrementVitality,
+  decrementVitality,
   resetLevel
 } from '../../store/action';
 import {FIRST_LEVEL, LAST_LEVEL, MINIMUM_POINTS} from '../../const';
@@ -19,6 +21,7 @@ import SportsMartialArtsOutlinedIcon from '@mui/icons-material/SportsMartialArts
 import HikingOutlinedIcon from '@mui/icons-material/HikingOutlined';
 import SurfingOutlinedIcon from '@mui/icons-material/SurfingOutlined';
 import RestartAltOutlinedIcon from '@mui/icons-material/RestartAltOutlined';
+import TransferWithinAStationIcon from '@mui/icons-material/TransferWithinAStation';
 
 import styles from './parameters.module.scss';
 
@@ -29,14 +32,15 @@ function Parameters(): JSX.Element {
     level,
     points,
     strength,
-    stamina,
-    agility,
+    dexterity,
+    intuition,
+    vitality,
     health,
     damage,
     defense,
     critDamage,
     critChance,
-    dodge,
+    dodgeChance,
     doubleChance
   } = countLevel;
 
@@ -58,7 +62,7 @@ function Parameters(): JSX.Element {
               if (level > FIRST_LEVEL) {
                 dispatch(decrementLevel());
               }
-              if (strength + stamina + agility > 0) {
+              if (strength + dexterity + intuition + vitality > 0) {
                 dispatch(resetLevel());
               }
             }}
@@ -117,26 +121,26 @@ function Parameters(): JSX.Element {
           </li>
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>
-              <HikingOutlinedIcon color="primary" />
-              Стойкость:
+              <SurfingOutlinedIcon color="primary" />
+              Ловкость:
             </div>
             <div className={styles['parameters__changeable-value']}>
               <ArrowBackIosOutlinedIcon
-                className={stamina === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
-                color={stamina === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                className={dexterity === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={dexterity === MINIMUM_POINTS ? 'disabled' : 'primary'}
                 onClick={() => {
-                  if (stamina > MINIMUM_POINTS) {
-                    dispatch(decrementStamina());
+                  if (dexterity > MINIMUM_POINTS) {
+                    dispatch(decrementDexterity());
                   }
                 }}
               />
-              <div className={styles['parameters__cell']}>{stamina}</div>
+              <div className={styles['parameters__cell']}>{dexterity}</div>
               <ArrowForwardIosOutlinedIcon
                 className={points === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
                 color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
                 onClick={() => {
                   if (MINIMUM_POINTS < points) {
-                    dispatch(incrementStamina());
+                    dispatch(incrementDexterity());
                   }
                 }}
               />
@@ -144,26 +148,53 @@ function Parameters(): JSX.Element {
           </li>
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>
-              <SurfingOutlinedIcon color="primary" />
-              Ловкость:
+              <TransferWithinAStationIcon color="primary" />
+              Интуиция:
             </div>
             <div className={styles['parameters__changeable-value']}>
               <ArrowBackIosOutlinedIcon
-                className={agility === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
-                color={agility === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                className={intuition === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={intuition === MINIMUM_POINTS ? 'disabled' : 'primary'}
                 onClick={() => {
-                  if (agility > MINIMUM_POINTS) {
-                    dispatch(decrementAgility());
+                  if (intuition > MINIMUM_POINTS) {
+                    dispatch(decrementIntuition());
                   }
                 }}
               />
-              <div className={styles['parameters__cell']}>{agility}</div>
+              <div className={styles['parameters__cell']}>{intuition}</div>
               <ArrowForwardIosOutlinedIcon
                 className={points === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
                 color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
                 onClick={() => {
                   if (MINIMUM_POINTS < points) {
-                    dispatch(incrementAgility());
+                    dispatch(incrementIntuition());
+                  }
+                }}
+              />
+            </div>
+          </li>
+          <li className={styles['parameters__row']}>
+            <div className={styles['parameters__description']}>
+              <HikingOutlinedIcon color="primary" />
+              Живучесть:
+            </div>
+            <div className={styles['parameters__changeable-value']}>
+              <ArrowBackIosOutlinedIcon
+                className={vitality === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={vitality === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                onClick={() => {
+                  if (vitality > MINIMUM_POINTS) {
+                    dispatch(decrementVitality());
+                  }
+                }}
+              />
+              <div className={styles['parameters__cell']}>{vitality}</div>
+              <ArrowForwardIosOutlinedIcon
+                className={points === MINIMUM_POINTS ? styles['parameters__arrow--disabled'] : styles['parameters__arrow--active']}
+                color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                onClick={() => {
+                  if (MINIMUM_POINTS < points) {
+                    dispatch(incrementVitality());
                   }
                 }}
               />
@@ -192,7 +223,7 @@ function Parameters(): JSX.Element {
           </li>
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Шанс уворота:</div>
-            <div className={styles['parameters__unchangeable-value']}>{dodge} %</div>
+            <div className={styles['parameters__unchangeable-value']}>{dodgeChance} %</div>
           </li>
           <li className={styles['parameters__row']}>
             <div className={styles['parameters__description']}>Шанс двойного удара:</div>

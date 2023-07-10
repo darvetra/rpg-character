@@ -4,10 +4,12 @@ import {
   decrementLevel,
   incrementStrength,
   decrementStrength,
-  incrementStamina,
-  decrementStamina,
-  incrementAgility,
-  decrementAgility,
+  incrementDexterity,
+  decrementDexterity,
+  incrementIntuition,
+  decrementIntuition,
+  incrementVitality,
+  decrementVitality,
   resetLevel,
   // setCharacters
 } from './action';
@@ -24,22 +26,21 @@ import {
   FIRST_LEVEL,
   STEP_COUNT,
   POINTS_PER_LEVEL,
-  HEALTH_PER_LEVEL,
   DAMAGE_PER_LEVEL,
-  DEFENSE_PER_LEVEL,
   CRIT_DAMAGE_PERCENT_PER_LEVEL,
   CRIT_CHANCE_PER_LEVEL,
   DODGE_PER_LEVEL,
   DOUBLE_STRIKE_CHANCE_PER_LEVEL,
-  HEALTH_PER_STRENGTH,
-  CRIT_CHANCE_PER_STRENGTH,
-  DAMAGE_PER_STAMINA,
-  DEFENSE_PER_STAMINA,
-  DODGE_PER_AGILITY,
-  DOUBLE_STRIKE_CHANCE_PER_AGILITY, CRIT_DAMAGE_PERCENT_PER_STRENGTH
+  CRIT_CHANCE_PER_INTUITION,
+  DAMAGE_PER_STRENGTH,
+  DODGE_PER_DEXTERITY,
+  DOUBLE_STRIKE_CHANCE_PER_DEXTERITY,
+  CRIT_DAMAGE_PERCENT_PER_STRENGTH,
+  HEALTH_PER_VITALITY
 } from '../const';
 
-import {characters, defaultCharacter} from '../mocks/characters';
+import {characters, CharacterServer, defaultCharacter} from '../mocks/characters';
+import {equip, helm} from '../mocks/items';
 
 const initialState = {
   level: FIRST_LEVEL,
@@ -47,19 +48,23 @@ const initialState = {
   // expToNextLvl: 100 (10/5),
   points: 10,
   strength: 0,
-  stamina: 0,
-  agility: 0,
+  dexterity: 0,
+  intuition: 0,
+  vitality: 0,
   health: 300,
   damage: 75,
-  defense: 3,
+  defense: 0,
   critDamagePercent: 215,
   critDamage: 161,
   critChance: 7,
-  dodge: 1.5,
+  dodgeChance: 1.5,
   doubleChance: 0.5,
 
   characters: characters,
   character: defaultCharacter,
+  characterServer: CharacterServer,
+  equip: equip,
+  helm: helm,
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -70,66 +75,66 @@ const reducer = createReducer(initialState, (builder) => {
     .addCase(incrementLevel, (state) => {
       state.level = state.level + STEP_COUNT;
       state.points = state.points + POINTS_PER_LEVEL;
-      state.health = Math.round(state.health + HEALTH_PER_LEVEL);
       state.damage = Math.round(state.damage + DAMAGE_PER_LEVEL);
-      state.defense = roundTwoDecimalPlaces(state.defense + DEFENSE_PER_LEVEL);
       state.critDamagePercent = state.critDamagePercent + CRIT_DAMAGE_PERCENT_PER_LEVEL;
       state.critChance = roundTwoDecimalPlaces(state.critChance + CRIT_CHANCE_PER_LEVEL);
-      state.dodge = roundTwoDecimalPlaces(calcDodgeIncLevel(state.level, state.dodge, DODGE_PER_LEVEL));
+      state.dodgeChance = roundTwoDecimalPlaces(calcDodgeIncLevel(state.level, state.dodgeChance, DODGE_PER_LEVEL));
       state.doubleChance = roundTwoDecimalPlaces(calcDoubleChanceIncLevel(state.level, state.doubleChance, DOUBLE_STRIKE_CHANCE_PER_LEVEL));
       state.critDamage = Math.round(state.damage / 100 * (state.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * state.strength)));
     })
     .addCase(decrementLevel, (state) => {
       state.level = state.level - STEP_COUNT;
       state.points = state.points - POINTS_PER_LEVEL;
-      state.health = Math.round(state.health - HEALTH_PER_LEVEL);
       state.damage = Math.round(state.damage - DAMAGE_PER_LEVEL);
-      state.defense = roundTwoDecimalPlaces(state.defense - DEFENSE_PER_LEVEL);
       state.critDamagePercent = state.critDamagePercent - CRIT_DAMAGE_PERCENT_PER_LEVEL;
       state.critChance = roundTwoDecimalPlaces(state.critChance - CRIT_CHANCE_PER_LEVEL);
-      state.dodge = roundTwoDecimalPlaces(calcDodgeDecLevel(state.level, state.dodge, DODGE_PER_LEVEL));
+      state.dodgeChance = roundTwoDecimalPlaces(calcDodgeDecLevel(state.level, state.dodgeChance, DODGE_PER_LEVEL));
       state.doubleChance = roundTwoDecimalPlaces(calcDoubleChanceDecLevel(state.level, state.doubleChance, DOUBLE_STRIKE_CHANCE_PER_LEVEL));
       state.critDamage = Math.round(state.damage / 100 * (state.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * state.strength)));
     })
     .addCase(incrementStrength, (state) => {
       state.strength = state.strength + STEP_COUNT;
       state.points = state.points - STEP_COUNT;
-      state.health = Math.round(state.health + HEALTH_PER_STRENGTH);
-      state.critChance = roundTwoDecimalPlaces(state.critChance + CRIT_CHANCE_PER_STRENGTH);
+      state.damage = Math.round(state.damage + DAMAGE_PER_STRENGTH);
       state.critDamage = Math.round(state.damage / 100 * (state.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * state.strength)));
     })
     .addCase(decrementStrength, (state) => {
       state.strength = state.strength - STEP_COUNT;
       state.points = state.points + STEP_COUNT;
-      state.health = Math.round(state.health - HEALTH_PER_STRENGTH);
-      state.critChance = roundTwoDecimalPlaces(state.critChance - CRIT_CHANCE_PER_STRENGTH);
+      state.damage = Math.round(state.damage - DAMAGE_PER_STRENGTH);
       state.critDamage = Math.round(state.damage / 100 * (state.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * state.strength)));
     })
-    .addCase(incrementStamina, (state) => {
-      state.stamina = state.stamina + STEP_COUNT;
+    .addCase(incrementDexterity, (state) => {
+      state.dexterity = state.dexterity + STEP_COUNT;
       state.points = state.points - STEP_COUNT;
-      state.damage = Math.round(state.damage + DAMAGE_PER_STAMINA);
-      state.defense = roundTwoDecimalPlaces(state.defense + DEFENSE_PER_STAMINA);
-      state.critDamage = Math.round(state.damage / 100 * (state.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * state.strength)));
+      state.dodgeChance = roundTwoDecimalPlaces(state.dodgeChance + DODGE_PER_DEXTERITY);
+      state.doubleChance = roundTwoDecimalPlaces(state.doubleChance + DOUBLE_STRIKE_CHANCE_PER_DEXTERITY);
     })
-    .addCase(decrementStamina, (state) => {
-      state.stamina = state.stamina - STEP_COUNT;
+    .addCase(decrementDexterity, (state) => {
+      state.dexterity = state.dexterity - STEP_COUNT;
       state.points = state.points + STEP_COUNT;
-      state.damage = Math.round(state.damage - DAMAGE_PER_STAMINA);
-      state.defense = roundTwoDecimalPlaces(state.defense - DEFENSE_PER_STAMINA);
-      state.critDamage = Math.round(state.damage / 100 * (state.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * state.strength)));
+      state.dodgeChance = roundTwoDecimalPlaces(state.dodgeChance - DODGE_PER_DEXTERITY);
+      state.doubleChance = roundTwoDecimalPlaces(state.doubleChance - DOUBLE_STRIKE_CHANCE_PER_DEXTERITY);
     })
-    .addCase(incrementAgility, (state) => {
-      state.agility = state.agility + STEP_COUNT;
+    .addCase(incrementIntuition, (state) => {
+      state.intuition = state.intuition + STEP_COUNT;
       state.points = state.points - STEP_COUNT;
-      state.dodge = roundTwoDecimalPlaces(state.dodge + DODGE_PER_AGILITY);
-      state.doubleChance = roundTwoDecimalPlaces(state.doubleChance + DOUBLE_STRIKE_CHANCE_PER_AGILITY);
+      state.critChance = roundTwoDecimalPlaces(state.critChance + CRIT_CHANCE_PER_INTUITION);
     })
-    .addCase(decrementAgility, (state) => {
-      state.agility = state.agility - STEP_COUNT;
+    .addCase(decrementIntuition, (state) => {
+      state.intuition = state.intuition - STEP_COUNT;
       state.points = state.points + STEP_COUNT;
-      state.dodge = roundTwoDecimalPlaces(state.dodge - DODGE_PER_AGILITY);
-      state.doubleChance = roundTwoDecimalPlaces(state.doubleChance - DOUBLE_STRIKE_CHANCE_PER_AGILITY);
+      state.critChance = roundTwoDecimalPlaces(state.critChance - CRIT_CHANCE_PER_INTUITION);
+    })
+    .addCase(incrementVitality, (state) => {
+      state.vitality = state.vitality + STEP_COUNT;
+      state.points = state.points - STEP_COUNT;
+      state.health = Math.round(state.health + HEALTH_PER_VITALITY);
+    })
+    .addCase(decrementVitality, (state) => {
+      state.vitality = state.vitality - STEP_COUNT;
+      state.points = state.points + STEP_COUNT;
+      state.health = Math.round(state.health - HEALTH_PER_VITALITY);
     })
     .addCase(resetLevel, (state) => {
       state.level = FIRST_LEVEL;
@@ -137,15 +142,15 @@ const reducer = createReducer(initialState, (builder) => {
       // expToNextLvl: 100 (10/5),
       state.points = 10;
       state.strength = 0;
-      state.stamina = 0;
-      state.agility = 0;
+      state.vitality = 0;
+      state.dexterity = 0;
       state.health = 300;
       state.damage = 75;
-      state.defense = 3;
+      state.defense = 0;
       state.critDamagePercent = 215;
       state.critDamage = 161;
       state.critChance = 7;
-      state.dodge = 1.5;
+      state.dodgeChance = 1.5;
       state.doubleChance = 0.5;
     });
 });
