@@ -3,18 +3,20 @@ import {useAppSelector} from '../../hooks';
 
 import {
   CRIT_CHANCE_PER_LEVEL,
-  CRIT_CHANCE_PER_STRENGTH,
+  CRIT_CHANCE_PER_INTUITION,
   CRIT_DAMAGE_PERCENT_PER_LEVEL,
   CRIT_DAMAGE_PERCENT_PER_STRENGTH,
-  DAMAGE_PER_LEVEL, DAMAGE_PER_STAMINA,
-  DEFENSE_PER_LEVEL, DEFENSE_PER_STAMINA,
-  DODGE_PER_AGILITY,
+  DAMAGE_PER_LEVEL,
+  // DAMAGE_PER_STRENGTH,
+  // DEFENSE_PER_LEVEL,
+  // DEFENSE_PER_STAMINA,
+  // DODGE_PER_DEXTERITY,
   DODGE_PER_LEVEL,
-  DOUBLE_STRIKE_CHANCE_PER_AGILITY,
+  // DOUBLE_STRIKE_CHANCE_PER_DEXTERITY,
   DOUBLE_STRIKE_CHANCE_PER_LEVEL,
   FIRST_LEVEL,
-  HEALTH_PER_LEVEL,
-  HEALTH_PER_STRENGTH,
+  // HEALTH_PER_LEVEL,
+  // HEALTH_PER_STRENGTH,
   LAST_LEVEL,
   MINIMUM_POINTS,
   POINTS_PER_LEVEL,
@@ -52,15 +54,15 @@ function BattleScreen(): JSX.Element {
     level,
     points,
     strength,
-    stamina,
-    agility,
+    vitality,
+    dexterity,
     health,
     damage,
     defense,
     // critDamagePercent,
     critDamage,
     critChance,
-    dodge,
+    dodgeChance,
     doubleChance
   } = character;
 
@@ -72,12 +74,12 @@ function BattleScreen(): JSX.Element {
       ...prevCharacter,
       level: prevCharacter.level + STEP_COUNT,
       points: prevCharacter.points + POINTS_PER_LEVEL,
-      health: Math.round(prevCharacter.health + HEALTH_PER_LEVEL),
+      // health: Math.round(prevCharacter.health + HEALTH_PER_LEVEL),
       damage: Math.round(prevCharacter.damage + DAMAGE_PER_LEVEL),
-      defense: roundTwoDecimalPlaces(prevCharacter.defense + DEFENSE_PER_LEVEL),
+      // defense: roundTwoDecimalPlaces(prevCharacter.defense + DEFENSE_PER_LEVEL),
       critDamagePercent: prevCharacter.critDamagePercent + CRIT_DAMAGE_PERCENT_PER_LEVEL,
       critChance: roundTwoDecimalPlaces(prevCharacter.critChance + CRIT_CHANCE_PER_LEVEL),
-      dodge: roundTwoDecimalPlaces(calcDodgeIncLevel(prevCharacter.level, prevCharacter.dodge, DODGE_PER_LEVEL)),
+      dodgeChance: roundTwoDecimalPlaces(calcDodgeIncLevel(prevCharacter.level, prevCharacter.dodgeChance, DODGE_PER_LEVEL)),
       doubleChance: roundTwoDecimalPlaces(calcDoubleChanceIncLevel(prevCharacter.level, prevCharacter.doubleChance, DOUBLE_STRIKE_CHANCE_PER_LEVEL)),
       critDamage: Math.round(prevCharacter.damage / 100 * (prevCharacter.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * strength))),
     }));
@@ -88,12 +90,12 @@ function BattleScreen(): JSX.Element {
       ...prevCharacter,
       level: prevCharacter.level - STEP_COUNT,
       points: prevCharacter.points - POINTS_PER_LEVEL,
-      health: Math.round(prevCharacter.health - HEALTH_PER_LEVEL),
+      // health: Math.round(prevCharacter.health - HEALTH_PER_LEVEL),
       damage: Math.round(prevCharacter.damage - DAMAGE_PER_LEVEL),
-      defense: roundTwoDecimalPlaces(prevCharacter.defense - DEFENSE_PER_LEVEL),
+      // defense: roundTwoDecimalPlaces(prevCharacter.defense - DEFENSE_PER_LEVEL),
       critDamagePercent: prevCharacter.critDamagePercent - CRIT_DAMAGE_PERCENT_PER_LEVEL,
       critChance: roundTwoDecimalPlaces(prevCharacter.critChance - CRIT_CHANCE_PER_LEVEL),
-      dodge: roundTwoDecimalPlaces(calcDodgeDecLevel(prevCharacter.level, prevCharacter.dodge, DODGE_PER_LEVEL)),
+      dodgeChance: roundTwoDecimalPlaces(calcDodgeDecLevel(prevCharacter.level, prevCharacter.dodgeChance, DODGE_PER_LEVEL)),
       doubleChance: roundTwoDecimalPlaces(calcDoubleChanceDecLevel(prevCharacter.level, prevCharacter.doubleChance, DOUBLE_STRIKE_CHANCE_PER_LEVEL)),
       critDamage: Math.round(prevCharacter.damage / 100 * (prevCharacter.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * strength))),
     }));
@@ -104,8 +106,8 @@ function BattleScreen(): JSX.Element {
       ...prevCharacter,
       strength: prevCharacter.strength + STEP_COUNT,
       points: prevCharacter.points - STEP_COUNT,
-      health: Math.round(prevCharacter.health + HEALTH_PER_STRENGTH),
-      critChance: roundTwoDecimalPlaces(prevCharacter.critChance + CRIT_CHANCE_PER_STRENGTH),
+      // health: Math.round(prevCharacter.health + HEALTH_PER_STRENGTH),
+      critChance: roundTwoDecimalPlaces(prevCharacter.critChance + CRIT_CHANCE_PER_INTUITION),
       critDamage: Math.round(prevCharacter.damage / 100 * (prevCharacter.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * strength))),
     }));
   };
@@ -115,53 +117,53 @@ function BattleScreen(): JSX.Element {
       ...prevCharacter,
       strength: prevCharacter.strength - STEP_COUNT,
       points: prevCharacter.points + STEP_COUNT,
-      health: Math.round(prevCharacter.health - HEALTH_PER_STRENGTH),
-      critChance: roundTwoDecimalPlaces(prevCharacter.critChance - CRIT_CHANCE_PER_STRENGTH),
+      // health: Math.round(prevCharacter.health - HEALTH_PER_STRENGTH),
+      critChance: roundTwoDecimalPlaces(prevCharacter.critChance - CRIT_CHANCE_PER_INTUITION),
       critDamage: Math.round(prevCharacter.damage / 100 * (prevCharacter.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * strength))),
     }));
   };
 
-  const incrementStamina = () => {
-    setCharacter((prevCharacter) => ({
-      ...prevCharacter,
-      stamina: prevCharacter.stamina + STEP_COUNT,
-      points: prevCharacter.points - STEP_COUNT,
-      damage: Math.round(prevCharacter.damage + DAMAGE_PER_STAMINA),
-      defense: roundTwoDecimalPlaces(prevCharacter.defense + DEFENSE_PER_STAMINA),
-      critDamage: Math.round(prevCharacter.damage / 100 * (prevCharacter.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * prevCharacter.strength))),
-    }));
-  };
-
-  const decrementStamina = () => {
-    setCharacter((prevCharacter) => ({
-      ...prevCharacter,
-      stamina: prevCharacter.stamina - STEP_COUNT,
-      points: prevCharacter.points + STEP_COUNT,
-      damage: Math.round(prevCharacter.damage - DAMAGE_PER_STAMINA),
-      defense: roundTwoDecimalPlaces(prevCharacter.defense - DEFENSE_PER_STAMINA),
-      critDamage: Math.round(prevCharacter.damage / 100 * (prevCharacter.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * prevCharacter.strength))),
-    }));
-  };
-
-  const incrementAgility = () => {
-    setCharacter((prevCharacter) => ({
-      ...prevCharacter,
-      agility: prevCharacter.agility + STEP_COUNT,
-      points: prevCharacter.points - STEP_COUNT,
-      dodge: roundTwoDecimalPlaces(prevCharacter.dodge + DODGE_PER_AGILITY),
-      doubleChance: roundTwoDecimalPlaces(prevCharacter.doubleChance + DOUBLE_STRIKE_CHANCE_PER_AGILITY),
-    }));
-  };
-
-  const decrementAgility = () => {
-    setCharacter((prevCharacter) => ({
-      ...prevCharacter,
-      agility: prevCharacter.agility - STEP_COUNT,
-      points: prevCharacter.points + STEP_COUNT,
-      dodge: roundTwoDecimalPlaces(prevCharacter.dodge - DODGE_PER_AGILITY),
-      doubleChance: roundTwoDecimalPlaces(prevCharacter.doubleChance - DOUBLE_STRIKE_CHANCE_PER_AGILITY),
-    }));
-  };
+  // const incrementDexterity = () => {
+  //   setCharacter((prevCharacter) => ({
+  //     ...prevCharacter,
+  //     vitality: prevCharacter.vitality + STEP_COUNT,
+  //     points: prevCharacter.points - STEP_COUNT,
+  //     damage: Math.round(prevCharacter.damage + DAMAGE_PER_STRENGTH),
+  //     // defense: roundTwoDecimalPlaces(prevCharacter.defense + DEFENSE_PER_STAMINA),
+  //     critDamage: Math.round(prevCharacter.damage / 100 * (prevCharacter.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * prevCharacter.strength))),
+  //   }));
+  // };
+  //
+  // const decrementDexterity = () => {
+  //   setCharacter((prevCharacter) => ({
+  //     ...prevCharacter,
+  //     vitality: prevCharacter.vitality - STEP_COUNT,
+  //     points: prevCharacter.points + STEP_COUNT,
+  //     damage: Math.round(prevCharacter.damage - DAMAGE_PER_STRENGTH),
+  //     // defense: roundTwoDecimalPlaces(prevCharacter.defense - DEFENSE_PER_STAMINA),
+  //     critDamage: Math.round(prevCharacter.damage / 100 * (prevCharacter.critDamagePercent + (CRIT_DAMAGE_PERCENT_PER_STRENGTH * prevCharacter.strength))),
+  //   }));
+  // };
+  //
+  // const incrementDexterity = () => {
+  //   setCharacter((prevCharacter) => ({
+  //     ...prevCharacter,
+  //     dexterity: prevCharacter.dexterity + STEP_COUNT,
+  //     points: prevCharacter.points - STEP_COUNT,
+  //     dodgeChance: roundTwoDecimalPlaces(prevCharacter.dodgeChance + DODGE_PER_DEXTERITY),
+  //     doubleChance: roundTwoDecimalPlaces(prevCharacter.doubleChance + DOUBLE_STRIKE_CHANCE_PER_DEXTERITY),
+  //   }));
+  // };
+  //
+  // const decrementDexterity = () => {
+  //   setCharacter((prevCharacter) => ({
+  //     ...prevCharacter,
+  //     dexterity: prevCharacter.dexterity - STEP_COUNT,
+  //     points: prevCharacter.points + STEP_COUNT,
+  //     dodge: roundTwoDecimalPlaces(prevCharacter.dodgeChance - DODGE_PER_DEXTERITY),
+  //     doubleChance: roundTwoDecimalPlaces(prevCharacter.doubleChance - DOUBLE_STRIKE_CHANCE_PER_DEXTERITY),
+  //   }));
+  // };
 
   const resetLevel = () => {
     setCharacter((prevCharacter) => ({
@@ -171,15 +173,15 @@ function BattleScreen(): JSX.Element {
       // expToNextLvl: 100 (10/5),
       points: 10,
       strength: 0,
-      stamina: 0,
-      agility: 0,
+      vitality: 0,
+      dexterity: 0,
       health: 300,
       damage: 75,
       defense: 3,
       critDamagePercent: 215,
       critDamage: 161,
       critChance: 7,
-      dodge: 1.5,
+      dodgeChance: 1.5,
       doubleChance: 0.5,
     }));
   };
@@ -231,9 +233,9 @@ function BattleScreen(): JSX.Element {
                       if (level > FIRST_LEVEL) {
                         decrementLevel();
                       }
-                      if (strength + stamina + agility > 0) {
-                        resetLevel();
-                      }
+                      // if (strength + dexterity + intuition + vitality > 0) {
+                      //   resetLevel();
+                      // }
                     }}
                   />
 
@@ -295,22 +297,22 @@ function BattleScreen(): JSX.Element {
                   </div>
                   <div className={styles['battle__parameters-changeable-value']}>
                     <ArrowBackIosOutlinedIcon
-                      className={stamina === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
-                      color={stamina === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                      className={vitality === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
+                      color={vitality === MINIMUM_POINTS ? 'disabled' : 'primary'}
                       onClick={() => {
-                        if (stamina > MINIMUM_POINTS) {
-                          decrementStamina();
-                        }
+                        // if (vitality > MINIMUM_POINTS) {
+                        //   decrementDexterity();
+                        // }
                       }}
                     />
-                    <div className={styles['battle__parameters-cell']}>{stamina}</div>
+                    <div className={styles['battle__parameters-cell']}>{vitality}</div>
                     <ArrowForwardIosOutlinedIcon
                       className={points === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
                       color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
                       onClick={() => {
-                        if (MINIMUM_POINTS < points) {
-                          incrementStamina();
-                        }
+                        // if (MINIMUM_POINTS < points) {
+                        //   incrementDexterity();
+                        // }
                       }}
                     />
                   </div>
@@ -322,22 +324,22 @@ function BattleScreen(): JSX.Element {
                   </div>
                   <div className={styles['battle__parameters-changeable-value']}>
                     <ArrowBackIosOutlinedIcon
-                      className={agility === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
-                      color={agility === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                      className={dexterity === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
+                      color={dexterity === MINIMUM_POINTS ? 'disabled' : 'primary'}
                       onClick={() => {
-                        if (agility > MINIMUM_POINTS) {
-                          decrementAgility();
-                        }
+                        // if (dexterity > MINIMUM_POINTS) {
+                        //   decrementDexterity();
+                        // }
                       }}
                     />
-                    <div className={styles['battle__parameters-cell']}>{agility}</div>
+                    <div className={styles['battle__parameters-cell']}>{dexterity}</div>
                     <ArrowForwardIosOutlinedIcon
                       className={points === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
                       color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
                       onClick={() => {
-                        if (MINIMUM_POINTS < points) {
-                          incrementAgility();
-                        }
+                        // if (MINIMUM_POINTS < points) {
+                        //   incrementDexterity();
+                        // }
                       }}
                     />
                   </div>
@@ -365,7 +367,7 @@ function BattleScreen(): JSX.Element {
                 </li>
                 <li className={styles['battle__parameters-row']}>
                   <div>Шанс уворота:</div>
-                  <div className={styles['parameters__unchangeable-value']}>{dodge} %</div>
+                  <div className={styles['parameters__unchangeable-value']}>{dodgeChance} %</div>
                 </li>
                 <li className={styles['battle__parameters-row']}>
                   <div>Шанс двойного удара:</div>
@@ -453,9 +455,9 @@ function BattleScreen(): JSX.Element {
                       if (level > FIRST_LEVEL) {
                         decrementLevel();
                       }
-                      if (strength + stamina + agility > 0) {
-                        resetLevel();
-                      }
+                      // if (strength + dexterity + intuition + vitality > 0) {
+                      //   resetLevel();
+                      // }
                     }}
                   />
 
@@ -517,22 +519,22 @@ function BattleScreen(): JSX.Element {
                   </div>
                   <div className={styles['battle__parameters-changeable-value']}>
                     <ArrowBackIosOutlinedIcon
-                      className={stamina === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
-                      color={stamina === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                      className={vitality === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
+                      color={vitality === MINIMUM_POINTS ? 'disabled' : 'primary'}
                       onClick={() => {
-                        if (stamina > MINIMUM_POINTS) {
-                          decrementStamina();
-                        }
+                        // if (vitality > MINIMUM_POINTS) {
+                        //   decrementDexterity();
+                        // }
                       }}
                     />
-                    <div className={styles['battle__parameters-cell']}>{stamina}</div>
+                    <div className={styles['battle__parameters-cell']}>{vitality}</div>
                     <ArrowForwardIosOutlinedIcon
                       className={points === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
                       color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
                       onClick={() => {
-                        if (MINIMUM_POINTS < points) {
-                          incrementStamina();
-                        }
+                        // if (MINIMUM_POINTS < points) {
+                        //   incrementDexterity();
+                        // }
                       }}
                     />
                   </div>
@@ -544,22 +546,22 @@ function BattleScreen(): JSX.Element {
                   </div>
                   <div className={styles['battle__parameters-changeable-value']}>
                     <ArrowBackIosOutlinedIcon
-                      className={agility === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
-                      color={agility === MINIMUM_POINTS ? 'disabled' : 'primary'}
+                      className={dexterity === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
+                      color={dexterity === MINIMUM_POINTS ? 'disabled' : 'primary'}
                       onClick={() => {
-                        if (agility > MINIMUM_POINTS) {
-                          decrementAgility();
-                        }
+                        // if (dexterity > MINIMUM_POINTS) {
+                        //   decrementDexterity();
+                        // }
                       }}
                     />
-                    <div className={styles['battle__parameters-cell']}>{agility}</div>
+                    <div className={styles['battle__parameters-cell']}>{dexterity}</div>
                     <ArrowForwardIosOutlinedIcon
                       className={points === MINIMUM_POINTS ? styles['battle__parameters-arrow--disabled'] : styles['battle__parameters-arrow--active']}
                       color={points === MINIMUM_POINTS ? 'disabled' : 'primary'}
                       onClick={() => {
-                        if (MINIMUM_POINTS < points) {
-                          incrementAgility();
-                        }
+                        // if (MINIMUM_POINTS < points) {
+                        //   incrementDexterity();
+                        // }
                       }}
                     />
                   </div>
@@ -587,7 +589,7 @@ function BattleScreen(): JSX.Element {
                 </li>
                 <li className={styles['battle__parameters-row']}>
                   <div>Шанс уворота:</div>
-                  <div className={styles['parameters__unchangeable-value']}>{dodge} %</div>
+                  <div className={styles['parameters__unchangeable-value']}>{dodgeChance} %</div>
                 </li>
                 <li className={styles['battle__parameters-row']}>
                   <div>Шанс двойного удара:</div>

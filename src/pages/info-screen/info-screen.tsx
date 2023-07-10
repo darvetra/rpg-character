@@ -57,9 +57,9 @@ function InfoScreen(): JSX.Element {
     // isAnonim,
     // userEvasionChance,
     userStrength,
-    userAgility,
+    userDexterity,
     userIntellect,
-    userStamina,
+    userVitality,
     // levelStrength,
     // levelAgility,
     // levelWinExp,
@@ -68,7 +68,7 @@ function InfoScreen(): JSX.Element {
     // levelLooseExpWot,
     // levelPoints,
     // levelIntellect,
-    // levelStamina,
+    // levelVitality,
     // userDefence,
     // searchValue,
     // levelSearchPool,
@@ -250,9 +250,9 @@ function InfoScreen(): JSX.Element {
                   <li>---</li>
                   <li>Attributes</li>
                   <li>Strength: {userStrength}</li>
-                  <li>Dexterity: {userAgility + 42}</li>
+                  <li>Dexterity: {userDexterity + 42}</li>
                   <li>Spirit: {userIntellect + 11}</li>
-                  <li>Vitality: {userStamina + 33}</li>
+                  <li>Vitality: {userVitality + 33}</li>
                   <li>---</li>
 
                   <li>Навыки</li>

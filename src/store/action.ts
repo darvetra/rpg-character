@@ -9,10 +9,12 @@ export const decrementLevel = createAction('calc/decrementLevel');
 
 export const incrementStrength = createAction('calc/incrementStrength');
 export const decrementStrength = createAction('calc/decrementStrength');
-export const incrementStamina = createAction('calc/incrementStamina');
-export const decrementStamina = createAction('calc/decrementStamina');
-export const incrementAgility = createAction('calc/incrementAgility');
-export const decrementAgility = createAction('calc/decrementAgility');
+export const incrementDexterity = createAction('calc/incrementDexterity');
+export const decrementDexterity = createAction('calc/decrementDexterity');
+export const incrementIntuition = createAction('calc/incrementIntuition ');
+export const decrementIntuition = createAction('calc/decrementIntuition ');
+export const incrementVitality = createAction('calc/incrementVitality');
+export const decrementVitality = createAction('calc/decrementVitality');
 
 export const resetLevel = createAction('calc/resetLevel');
 

@@ -14,7 +14,7 @@ function MainScreen(): JSX.Element {
       <Header />
 
       <main className={styles['main-page']}>
-        <h1 className="visually-hidden">Rotgar.Guide</h1>
+        {/*<h1 className="visually-hidden">Rotgar.Guide</h1>*/}
         {/*<Stats />*/}
         <Character />
         <Inventory />
