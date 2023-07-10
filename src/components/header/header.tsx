@@ -20,13 +20,13 @@ function Header(): JSX.Element {
               type="image/webp"
               width="86"
               height="86"
-              srcSet={require('../../img/logo.webp')}
+              srcSet={require('../../img/archive/logo.webp')}
             />
             <img
               alt="img"
               width="86"
               height="86"
-              src={require('../../img/logo.png')}
+              src={require('../../img/archive/logo.png')}
             />
           </picture>
           <p>ROTGAR.GUIDE</p>
